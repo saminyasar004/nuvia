@@ -14,14 +14,27 @@ export default {
 			center: true,
 			padding: "2rem",
 			screens: {
-				"2xl": "1400px",
+				"2xl": "700px",
+				"3xl": "1000px",
+				"4xl": "1200px",
+				"5xl": "1400px",
 			},
 		},
 		extend: {
+			fontFamily: {
+				roboto: ["Roboto", "sans-serif"],
+			},
 			colors: {
-				primary: "#1dd881",
-				secondary: "#033333",
-				warning: "#ff523b",
+				primary: "#9A70D3",
+				secondary: "#F0EAF8",
+				background: "#fff9e8",
+				foreground: "#1E1E1E",
+				accent: "#fdf3d3",
+				darkBlue: "#0f1e28",
+				danger: "#E90004",
+				success: "#18CA05",
+				warning: "#FBB03B",
+				woodGreen: "#3BA3A4",
 			},
 			keyframes: {
 				"accordion-down": {
