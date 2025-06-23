@@ -16,7 +16,7 @@ export default function Header() {
 	];
 
 	return (
-		<header className="w-full h-auto py-4">
+		<header className="w-full h-auto py-3 bg-background/50 sticky top-0 z-50 backdrop-blur-lg shadow-sm transition-all duration-300 ease-in-out">
 			<div className="container grid grid-cols-4 gap-3 items-center">
 				<div className="flex items-center justify-start">
 					<Link to={"/"}>
