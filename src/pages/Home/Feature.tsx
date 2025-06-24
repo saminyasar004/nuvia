@@ -48,7 +48,7 @@ export default function Feature() {
 	];
 
 	return (
-		<section className="py-24">
+		<section className="py-24" id="feature">
 			<div className="container">
 				<SectionHeading
 					title={

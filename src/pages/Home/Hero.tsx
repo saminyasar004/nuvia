@@ -1,19 +1,17 @@
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ChatInterfaceImg from "@/assets/images/chat-interface.svg";
+import Logo from "@/assets/images/logo-black.svg";
 import User1Img from "@/assets/images/user-1.jpg";
 import User2Img from "@/assets/images/user-2.png";
 import User3Img from "@/assets/images/user-3.jpg";
 import User4Img from "@/assets/images/user-4.png";
-import ChatInterfaceImg from "@/assets/images/chat-interface.svg";
-import { IconCloud } from "@/components/magicui/icon-cloud";
-import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
-import { File, Search, Settings } from "lucide-react";
+import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { DotPattern } from "@/components/magicui/dot-pattern";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Sparkles } from "lucide-react";
 import { forwardRef, useRef } from "react";
-import { AnimatedBeam } from "@/components/magicui/animated-beam";
-import Logo from "@/assets/images/logo-black.svg";
 
 const Icons = {
 	logo: () => (
@@ -672,15 +670,16 @@ export default function Hero() {
 	const div7Ref = useRef<HTMLDivElement>(null);
 
 	return (
-		<section className="w-full">
+		<section className="w-full" id="home">
 			<div className="container h-[80vh] max-h-[700px] grid grid-cols-2 py-32">
 				<div className="h-full flex flex-col gap-6">
 					<div className="w-full space-y-1">
 						<h1 className="font-bold text-6xl">
 							Seamless Customer
 						</h1>
-						<h1 className="font-bold text-6xl text-primary">
+						<h1 className="font-bold text-6xl text-primary flex items-start gap-1">
 							Conversations with AI
+							<Sparkles fill="#9A70D3" />
 						</h1>
 					</div>
 
@@ -743,35 +742,6 @@ export default function Hero() {
 				</div>
 
 				<div className="w-full h-full flex items-start justify-center relative">
-					{/* <IconCloud
-						icons={[
-							<Icons.gitHub key="github" />,
-							<Icons.notion key="notion" />,
-							<Icons.openai key="openai" />,
-							<Icons.googleDrive key="gdrive" />,
-							<Icons.whatsapp key="whatsapp" />,
-							<Icons.gitHub key="github2" />,
-							<Icons.notion key="notion2" />,
-							<Icons.openai key="openai2" />,
-							<Icons.googleDrive key="gdrive2" />,
-							<Icons.whatsapp key="whatsapp2" />,
-							<Icons.gitHub key="github3" />,
-							<Icons.notion key="notion3" />,
-							<Icons.openai key="openai3" />,
-							<Icons.googleDrive key="gdrive3" />,
-							<Icons.whatsapp key="whatsapp3" />,
-							<Icons.gitHub key="github4" />,
-							<Icons.notion key="notion4" />,
-							<Icons.openai key="openai4" />,
-							<Icons.googleDrive key="gdrive4" />,
-							<Icons.whatsapp key="whatsapp4" />,
-							<Icons.notion key="notion4" />,
-							<Icons.openai key="openai4" />,
-							<Icons.googleDrive key="gdrive4" />,
-							<Icons.whatsapp key="whatsapp4" />,
-						]}
-					/> */}
-
 					<div
 						className="relative flex h-[300px] w-full items-center justify-center overflow-hidden p-10"
 						ref={containerRef}

@@ -59,26 +59,28 @@ export default function BrandPartners() {
 				</h5>
 			</div>
 
-			<Swiper
-				modules={[Autoplay]}
-				spaceBetween={10}
-				slidesPerView={5}
-				autoplay={{ delay: 2000, disableOnInteraction: false }}
-				loop={true}
-				className="overflow-hidden"
-			>
-				{brands.map((brand) => (
-					<SwiperSlide key={brand.id} className="mb-24">
-						<div className="flex items-center justify-center">
-							<img
-								src={brand.img}
-								alt={brand.title}
-								className="h-14 object-contain"
-							/>
-						</div>
-					</SwiperSlide>
-				))}
-			</Swiper>
+			<div className="container">
+				<Swiper
+					modules={[Autoplay]}
+					spaceBetween={10}
+					slidesPerView={5}
+					autoplay={{ delay: 2000, disableOnInteraction: false }}
+					loop={true}
+					className="overflow-hidden"
+				>
+					{brands.map((brand) => (
+						<SwiperSlide key={brand.id} className="mb-24">
+							<div className="flex items-center justify-center">
+								<img
+									src={brand.img}
+									alt={brand.title}
+									className="h-14 object-contain"
+								/>
+							</div>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
 		</section>
 	);
 }

@@ -15,7 +15,7 @@ export default function SectionHeading({
 				</h2>
 			)}
 			{description && (
-				<p className="text-center w-[55%] leading-normal">
+				<p className="text-center w-[40%] leading-normal">
 					{description}
 				</p>
 			)}

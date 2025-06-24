@@ -1,3 +1,4 @@
+import SectionHeading from "@/components/common/SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Star } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
@@ -50,8 +51,8 @@ export default function Process() {
 			const windowHeight = window.innerHeight;
 
 			// Calculate how much of the section is visible
-			const sectionStart = sectionTop - windowHeight * 0.8;
-			const sectionEnd = sectionTop + sectionHeight - windowHeight * 0.2;
+			const sectionStart = sectionTop - windowHeight * 0;
+			const sectionEnd = sectionTop + sectionHeight - windowHeight * 0.8;
 
 			if (scrollY >= sectionStart && scrollY <= sectionEnd) {
 				// Calculate progress through the section (0 to 1)
@@ -74,31 +75,49 @@ export default function Process() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative mb-32 py-32 px-4 overflow-hidden"
+			id="how-it-works"
+			className="relative pb-24 overflow-hidden"
 		>
-			{/* Background decorative elements */}
-			<div className="absolute top-8 right-16 text-purple-400 animate-pulse">
-				<Star className="w-6 h-6 fill-current" />
-			</div>
-			<div className="absolute top-20 right-32 text-purple-400 animate-bounce">
-				<Sparkles className="w-4 h-4 fill-current" />
-			</div>
-			<div className="absolute bottom-16 left-20 text-purple-400 animate-pulse">
-				<Star className="w-5 h-5 fill-current" />
-			</div>
-			<div className="absolute bottom-32 right-24 text-purple-400 animate-bounce">
-				<Sparkles className="w-3 h-3 fill-current" />
+			<div className="container py-24">
+				<SectionHeading
+					title={
+						<>
+							<h2>
+								Set Up Your{" "}
+								<span className="text-primary">
+									AI Chatbot{" "}
+								</span>
+								In Minutes
+							</h2>
+						</>
+					}
+					description="Our platform makes it easy to create, customize, and deploy your own AI-powered chatbot without any technical expertise."
+				/>
 			</div>
 
-			<div className="max-w-4xl mx-auto relative">
+			<div className="container relative">
+				{/* Background decorative elements */}
+				<div className="absolute top-0 right-32 text-primary animate-pulse">
+					<Star className="w-8 h-8 fill-current" />
+				</div>
+				<div className="absolute top-32 right-48 text-primary animate-bounce">
+					<Sparkles className="w-5 h-5 fill-current" />
+				</div>
+				<div className="absolute bottom-0 right-96 text-primary animate-pulse">
+					<Star className="w-8 h-8 fill-current" />
+				</div>
+				<div className="absolute bottom-32 right-52 text-primary animate-bounce">
+					<Sparkles className="w-6 h-6 fill-current" />
+				</div>
+
 				{/* Connecting line with animated progress */}
 				<div className="absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-px hidden md:block">
 					{/* Background line */}
-					<div className="absolute inset-0 bg-purple-200" />
+					<div className="absolute inset-0 bg-background" />
 
 					{/* Animated progress line */}
 					<div
-						className="absolute top-0 left-0 w-full bg-gradient-to-b from-purple-400 to-purple-600 transition-all duration-500 ease-out"
+						className="absolute top-0 left-0 w-full bg-gradient-to-b from-primary/20 to-primary transition-all duration-500 ease-out"
 						style={{
 							height: `${
 								((activeStep + 1) / steps.length) * 100
@@ -116,7 +135,7 @@ export default function Process() {
 									: "bg-purple-200 scale-100"
 							}`}
 							style={{
-								top: `${(index * 100) / (steps.length - 1)}%`,
+								top: `${(index * 100) / (steps.length - 2)}%`,
 								transitionDelay: `${index * 100}ms`,
 							}}
 						>
@@ -151,18 +170,18 @@ export default function Process() {
 								}`}
 							>
 								<Card
-									className={`bg-white/80 backdrop-blur-sm border-2 shadow-lg hover:shadow-xl transition-all duration-500 ${
+									className={`bg-accent/50 border-2 backdrop-blur-lg ${
 										index <= activeStep
-											? "border-purple-300 shadow-purple-100"
-											: "border-purple-100"
+											? "border-primary"
+											: "border-secondary"
 									}`}
 								>
 									<CardContent className="p-6">
 										<h3
 											className={`text-xl font-semibold mb-3 transition-colors duration-500 ${
 												index <= activeStep
-													? "text-purple-600"
-													: "text-purple-400"
+													? "text-primary"
+													: "text-primary/50"
 											}`}
 										>
 											{step.title}
@@ -170,8 +189,8 @@ export default function Process() {
 										<p
 											className={`leading-relaxed transition-colors duration-500 ${
 												index <= activeStep
-													? "text-gray-700"
-													: "text-gray-500"
+													? "text-foreground"
+													: "text-foreground/50"
 											}`}
 										>
 											{step.description}
