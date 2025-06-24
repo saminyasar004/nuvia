@@ -1,18 +1,14 @@
 import Logo from "@/assets/images/logo-black.svg";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { Button } from "../ui/button";
-import { cn } from "@/lib/utils";
 import {
 	Sheet,
-	SheetClose,
 	SheetContent,
-	SheetDescription,
 	SheetFooter,
-	SheetHeader,
-	SheetTitle,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-import { AlignRight, List } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { AlignRight } from "lucide-react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Button } from "../ui/button";
 
 export default function Header() {
 	const location = useLocation();
