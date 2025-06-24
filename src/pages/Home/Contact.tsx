@@ -7,7 +7,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 export default function Contact() {
 	return (
 		<section className="py-16 border border-dashed border-[#F1CF6D] mb-32">
-			<div className="container grid grid-cols-2 gap-14">
+			<div className="container grid grid-cols-1 lg:grid-cols-2 gap-14">
 				<div className="flex flex-col gap-5">
 					<h3 className="font-bold text-3xl text-primary leading-tight">
 						Contact Us

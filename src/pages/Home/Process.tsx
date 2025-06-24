@@ -97,21 +97,21 @@ export default function Process() {
 
 			<div className="container relative">
 				{/* Background decorative elements */}
-				<div className="absolute top-0 right-32 text-primary animate-pulse">
+				<div className="absolute -top-16 md:top-0 right-32 text-primary animate-pulse">
 					<Star className="w-8 h-8 fill-current" />
 				</div>
-				<div className="absolute top-32 right-48 text-primary animate-bounce">
+				<div className="absolute -top-20 md:top-32 right-48 text-primary animate-bounce">
 					<Sparkles className="w-5 h-5 fill-current" />
 				</div>
-				<div className="absolute bottom-0 right-96 text-primary animate-pulse">
+				<div className="absolute -bottom-16 md:bottom-0 right-12 md:right-96 text-primary animate-pulse">
 					<Star className="w-8 h-8 fill-current" />
 				</div>
-				<div className="absolute bottom-32 right-52 text-primary animate-bounce">
+				<div className="absolute -bottom-24 md:bottom-32 md:right-52 right-52 text-primary animate-bounce">
 					<Sparkles className="w-6 h-6 fill-current" />
 				</div>
 
 				{/* Connecting line with animated progress */}
-				<div className="absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-px hidden md:block">
+				<div className="absolute left-5 md:left-0 lg:left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-px">
 					{/* Background line */}
 					<div className="absolute inset-0 bg-background" />
 
@@ -147,13 +147,13 @@ export default function Process() {
 					))}
 				</div>
 
-				<div className="space-y-12 md:space-y-16">
+				<div className="space-y-12 lg:space-y-16">
 					{steps.map((step, index) => (
 						<div
 							key={index}
 							className={`flex items-center transition-all duration-700 ease-out ${
 								step.position === "right"
-									? "md:flex-row-reverse"
+									? "lg:flex-row-reverse"
 									: ""
 							} ${
 								index <= activeStep
@@ -163,14 +163,14 @@ export default function Process() {
 							style={{ transitionDelay: `${index * 150}ms` }}
 						>
 							<div
-								className={`w-full md:w-1/2 ${
+								className={`w-full lg:w-1/2 ${
 									step.position === "right"
-										? "md:pl-12"
-										: "md:pr-12"
+										? "lg:pl-12"
+										: "lg:pr-12"
 								}`}
 							>
 								<Card
-									className={`bg-accent/50 border-2 backdrop-blur-lg ${
+									className={`bg-accent/50 border-2 backdrop-blur-lg ml-3 md:ml-0 ${
 										index <= activeStep
 											? "border-primary"
 											: "border-secondary"

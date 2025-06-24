@@ -128,7 +128,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 					showControls ? "opacity-100" : "opacity-0"
 				)}
 			>
-				<div className="w-full flex items-center justify-center gap-32 h-full">
+				<div className="w-full flex items-center justify-center gap-16 lg:gap-32 h-full">
 					<button
 						onClick={() => skip(-10)}
 						className="flex items-center justify-center gap-1 text-white cursor-pointer transition-all duration-200 hover:bg-primary/70 rounded-md p-2"

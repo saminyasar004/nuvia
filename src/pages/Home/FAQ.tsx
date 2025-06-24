@@ -45,7 +45,7 @@ export default function FAQ() {
 					description="Find answers to common questions about ChatFlow and our services"
 				/>
 
-				<div className="w-full grid grid-cols-2 gap-3 py-8">
+				<div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-3 py-8">
 					<div className="w-full flex items-start">
 						<img src={FAQBanner} alt="Faq Banner" />
 					</div>

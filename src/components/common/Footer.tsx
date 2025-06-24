@@ -30,11 +30,15 @@ export default function Footer() {
 
 	return (
 		<footer className="bg-darkBlue w-full py-12">
-			<div className="container grid grid-cols-5">
-				<div className="col-span-2 flex flex-col gap-4">
-					<img src={Logo} alt="easechat" className="max-w-[20%]" />
+			<div className="container grid grid-cols-1 lg:grid-cols-5 gap-5 lg:gap-0">
+				<div className="lg:col-span-2 flex flex-col gap-4">
+					<img
+						src={Logo}
+						alt="easechat"
+						className="max-w-[40%] lg:max-w-[20%]"
+					/>
 
-					<p className="text-[#A8A6B3] text-sm font-medium w-[60%] leading-normal">
+					<p className="text-[#A8A6B3] text-sm font-medium lg:w-[60%] leading-normal">
 						AI-powered chatbots for businesses of all sizes.
 						Automate appointment booking, answer customer questions,
 						and grow your business.

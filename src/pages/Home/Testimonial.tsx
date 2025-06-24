@@ -118,7 +118,7 @@ function TestimonialCard({
 	text: string;
 }) {
 	return (
-		<div className="bg-accent lg:py-5 pb-5 rounded-lg overflow-y-hidden grid grid-cols-1 lg:grid-cols-3 gap-8 border-2 border-[##F1CF6D] border-dashed">
+		<div className="bg-accent h-full lg:py-5 pb-5 rounded-lg overflow-y-hidden grid grid-cols-1 lg:grid-cols-3 gap-8 border-2 border-[##F1CF6D] border-dashed">
 			<div className="h-72 lg:w-72 w-full lg:rounded-r-2xl overflow-hidden flex items-center justify-center">
 				<img
 					src={image}

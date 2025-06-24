@@ -63,7 +63,20 @@ export default function BrandPartners() {
 				<Swiper
 					modules={[Autoplay]}
 					spaceBetween={10}
-					slidesPerView={5}
+					breakpoints={{
+						0: {
+							slidesPerView: 1,
+						},
+						768: {
+							slidesPerView: 2,
+						},
+						1024: {
+							slidesPerView: 3,
+						},
+						1280: {
+							slidesPerView: 5,
+						},
+					}}
 					autoplay={{ delay: 2000, disableOnInteraction: false }}
 					loop={true}
 					className="overflow-hidden"

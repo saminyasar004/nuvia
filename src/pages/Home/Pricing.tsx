@@ -74,30 +74,30 @@ export default function Pricing() {
 					description="Choose the plan that's right for your business"
 				/>
 
-				<div className="w-full grid grid-cols-3 gap-20 items-start pt-12">
+				<div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-20 items-start pt-12">
 					{pricingPlans.map((plan, index) => (
 						<Card
 							key={index}
 							className="bg-accent border-primary rounded-3xl p-2 h-full"
 						>
 							<CardHeader className="space-y-3">
-								<h3 className="font-bold text-4xl text-primary">
+								<h3 className="font-bold text-3xl lg:text-4xl text-primary">
 									{plan.title}
 								</h3>
-								<p className="leading-normal">
+								<p className="leading-normal text-sm lg:text-base">
 									{plan.description}
 								</p>
 							</CardHeader>
 							<CardContent className="relative pt-24">
-								<div className="w-full absolute top-0 -left-16 before:absolute before:-bottom-14 before:left-0 before:w-0 before:h-0 before:border-l-[55px] before:border-r-[0px] before:border-t-[60px] before:border-l-transparent before:border-r-transparent before:border-t-primary/30 before:z-20">
+								<div className="w-full absolute top-0 -left-8 lg:-left-16 before:absolute before:-bottom-5 lg:before:-bottom-14 before:left-0 before:w-0 before:h-0 before:border-l-[25px] lg:before:border-l-[55px] before:border-r-[0px] before:border-t-[20px] lg:before:border-t-[60px] before:border-l-transparent before:border-r-transparent before:border-t-primary/30 before:z-20">
 									<div
-										className="w-[110%] h-32 p-3 bg-primary/80 text-white flex items-center"
+										className="w-full lg:w-[110%] h-24 lg:h-32 p-3 bg-primary/80 text-white flex items-center"
 										style={{
 											clipPath:
 												"polygon(0 0, 85% 0, 100% 100%, 0% 100%)",
 										}}
 									>
-										<h2 className="font-bold text-6xl flex items-end w-full text-center pl-20">
+										<h2 className="font-bold text-5xl lg:text-6xl flex items-end w-full text-center pl-10 lg:pl-20">
 											{plan.price}
 											<span className="font-normal text-base">
 												/month
@@ -106,7 +106,7 @@ export default function Pricing() {
 									</div>
 								</div>
 
-								<ul className="w-full flex flex-col gap-3 py-4 my-12">
+								<ul className="w-full flex flex-col gap-3 py-4 my-5 lg:my-12">
 									{plan.features.map((feature, index) => (
 										<li
 											key={index}
@@ -116,7 +116,7 @@ export default function Pricing() {
 												className="text-white"
 												fill="#9A70D3"
 											/>
-											<span className="font-medium">
+											<span className="font-medium text-sm lg:text-base">
 												{feature}
 											</span>
 										</li>

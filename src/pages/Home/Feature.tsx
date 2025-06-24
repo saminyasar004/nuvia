@@ -62,7 +62,7 @@ export default function Feature() {
 					description="Our platform provides all the tools you need to create intelligent chatbots that handle appointments, answer questions, and delight your customers."
 				/>
 
-				<div className="w-full grid grid-cols-3 gap-5 py-8">
+				<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-8">
 					{features.map((feature, index) => (
 						<div
 							key={index}

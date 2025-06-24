@@ -671,25 +671,25 @@ export default function Hero() {
 
 	return (
 		<section className="w-full" id="home">
-			<div className="container h-[80vh] max-h-[700px] grid grid-cols-2 py-32">
-				<div className="h-full flex flex-col gap-6">
-					<div className="w-full space-y-1">
-						<h1 className="font-bold text-6xl">
+			<div className="container h-[80vh] max-h-[700px] grid grid-cols-1 lg:grid-cols-2 py-12 lg:py-32">
+				<div className="h-full flex flex-col gap-6 text-center lg:text-left">
+					<div className="w-full flex flex-col gap-2 lg:gap-3 items-center justify-center lg:items-start text-center lg:text-left">
+						<h1 className="font-bold text-3xl lg:text-6xl">
 							Seamless Customer
 						</h1>
-						<h1 className="font-bold text-6xl text-primary flex items-start gap-1">
+						<h1 className="font-bold text-3xl lg:text-6xl text-primary flex gap-1">
 							Conversations with AI
 							<Sparkles fill="#9A70D3" />
 						</h1>
 					</div>
 
-					<p className="w-[85%] leading-relaxed">
+					<p className="lg:w-[85%] w-full leading-relaxed">
 						Use the same platform across WhatsApp, Facebook, and
 						Instagram for better customer support workflow. Automate
 						bookings, process payments, and delight customers 24/7.
 					</p>
 
-					<div className="w-full flex gap-6 items-center">
+					<div className="w-full flex lg:flex-row gap-6 items-center flex-col-reverse">
 						<Button size="lg" className="rounded-full">
 							Get Started
 						</Button>
@@ -763,7 +763,6 @@ export default function Hero() {
 									ref={div4Ref}
 									className="size-20 bg-secondary"
 								>
-									{/* <Icons.openai /> */}
 									<img src={Logo} alt="Easechat" />
 								</Circle>
 								<Circle ref={div6Ref}>
@@ -831,7 +830,7 @@ export default function Hero() {
 				</div>
 			</div>
 
-			<div className="container flex items-center justify-center">
+			<div className="container pt-32 lg:pt-0 flex items-center justify-center">
 				<BlurFade delay={0.25 + 0.05} inView>
 					<img
 						src={ChatInterfaceImg}
