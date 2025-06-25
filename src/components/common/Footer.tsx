@@ -4,28 +4,13 @@ import { Input } from "@/components/ui/input";
 import { MoveRight } from "lucide-react";
 
 export default function Footer() {
-	const handleNavClick = (
-		e: React.MouseEvent<HTMLAnchorElement>,
-		targetId: string
-	) => {
-		e.preventDefault();
-		if (window.location.pathname === "/") {
-			const targetElement = document.getElementById(targetId);
-			if (targetElement) {
-				targetElement.scrollIntoView({ behavior: "smooth" });
-			}
-		} else if (targetId !== "home") {
-			window.location.hash = `#${targetId}`;
-		}
-	};
-
 	const navMenus = [
-		{ title: "Home", url: "home" },
-		{ title: "Features", url: "feature" },
-		{ title: "How it works", url: "how-it-works" },
-		{ title: "Pricing", url: "pricing" },
-		{ title: "FAQ", url: "faq" },
-		{ title: "Testimonials", url: "testimonials" },
+		{ title: "Home", url: "/#home" },
+		{ title: "Features", url: "/#feature" },
+		{ title: "How it works", url: "/#how-it-works" },
+		{ title: "Pricing", url: "/#pricing" },
+		{ title: "FAQ", url: "/#faq" },
+		{ title: "Testimonials", url: "/#testimonials" },
 	];
 
 	return (
@@ -51,10 +36,16 @@ export default function Footer() {
 					</h4>
 
 					<div className="flex flex-col gap-2 text-[#A8A6B3]">
-						<Link to={"/privacy-policy"} className="w-max">
+						<Link
+							to={"/privacy-policy"}
+							className="w-max hover:underline hover:text-primary transition-all duration-150"
+						>
 							Privacy / Policy
 						</Link>
-						<Link to={"/terms-and-conditions"} className="w-max">
+						<Link
+							to={"/terms-and-conditions"}
+							className="w-max hover:underline hover:text-primary transition-all duration-150"
+						>
 							Terms & Conditions
 						</Link>
 					</div>
@@ -67,14 +58,13 @@ export default function Footer() {
 
 					<div className="flex flex-col gap-2 text-[#A8A6B3]">
 						{navMenus.map((menu, index) => (
-							<NavLink
+							<a
 								key={index}
-								to={`/#${menu.url}`}
-								onClick={(e) => handleNavClick(e, menu.url)}
-								className="w-max"
+								href={menu.url}
+								className="w-max hover:underline hover:text-primary transition-all duration-150"
 							>
 								{menu.title}
-							</NavLink>
+							</a>
 						))}
 					</div>
 				</div>
