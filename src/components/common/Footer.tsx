@@ -43,7 +43,7 @@ export default function Footer() {
 							Privacy / Policy
 						</Link>
 						<Link
-							to={"/terms-and-conditions"}
+							to={"/terms-and-condition"}
 							className="w-max hover:underline hover:text-primary transition-all duration-150"
 						>
 							Terms & Conditions

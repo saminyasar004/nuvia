@@ -1,6 +1,6 @@
 import Layout from "@/components/common/Layout";
 import Home from "@/pages/Home/Index";
-import Privacy from "@/pages/Legal/privacy";
+import TermsAndCondition from "@/pages/Legal/TermsAndCondition";
 
 export interface Route {
 	path: string;
@@ -15,8 +15,8 @@ export const routes = [
 		layout: Layout,
 	},
 	{
-		path: "/privacy-policy",
-		element: Privacy,
+		path: "/terms-and-condition",
+		element: TermsAndCondition,
 		layout: Layout,
 	},
 ];

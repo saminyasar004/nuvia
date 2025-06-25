@@ -1,16 +1,16 @@
-export interface PolicyContentItem {
+export interface TermsContentItem {
 	type: "paragraph" | "list";
 	text?: string; // For paragraphs or list lead-ins
 	items?: string[]; // For list items
 }
 
-export interface PolicySection {
+export interface TermsSection {
 	id: number;
 	title: string;
-	content: PolicyContentItem[];
+	content: TermsContentItem[];
 }
 
-export const policyData: PolicySection[] = [
+export const TermsData: TermsSection[] = [
 	{
 		id: 1,
 		title: "1. Acceptance of Terms",
@@ -155,11 +155,11 @@ export const policyData: PolicySection[] = [
 	},
 ];
 
-export default function Privacy() {
+export default function TermsAndCondition() {
 	return (
 		<section className="py-24">
 			<div className="container">
-				<div className="w-full flex flex-col gap-5 items-center">
+				<div className="w-full flex flex-col gap-5 items-center text-center">
 					<h1 className="font-bold text-5xl">Terms & Condition</h1>
 
 					<h6 className="font-medium">
@@ -178,7 +178,7 @@ export default function Privacy() {
 				</div>
 
 				<div className="w-full flex flex-col gap-20 py-16">
-					{policyData.map((section: PolicySection) => (
+					{TermsData.map((section: TermsSection) => (
 						<div
 							key={section.id}
 							className="rounded-lg bg-accent p-6 shadow-sm"
@@ -197,7 +197,7 @@ export default function Privacy() {
 	);
 }
 
-const renderContent = (contentItem: PolicyContentItem, index: number) => {
+const renderContent = (contentItem: TermsContentItem, index: number) => {
 	if (contentItem.type === "paragraph" && contentItem.text) {
 		return (
 			<p key={index} className="text-foreground">
