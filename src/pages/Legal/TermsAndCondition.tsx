@@ -10,7 +10,7 @@ export interface TermsSection {
 	content: TermsContentItem[];
 }
 
-export const TermsData: TermsSection[] = [
+export const termsData: TermsSection[] = [
 	{
 		id: 1,
 		title: "1. Acceptance of Terms",
@@ -166,7 +166,7 @@ export default function TermsAndCondition() {
 						Effective Date: June 1st, 2025
 					</h6>
 
-					<div className="bg-accent rounded-lg shadow-sm py-4 px-2">
+					<div className="bg-accent rounded-lg shadow-sm py-4 px-2 text-left">
 						<p className="text-sm">
 							Welcome to ChatFlow. These Terms and Conditions
 							("Terms") govern your use of our AI-powered
@@ -178,7 +178,7 @@ export default function TermsAndCondition() {
 				</div>
 
 				<div className="w-full flex flex-col gap-20 py-16">
-					{TermsData.map((section: TermsSection) => (
+					{termsData.map((section: TermsSection) => (
 						<div
 							key={section.id}
 							className="rounded-lg bg-accent p-6 shadow-sm"
