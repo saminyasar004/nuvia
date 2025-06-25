@@ -1,9 +1,9 @@
-import ChatInterfaceImg from "@/assets/images/chat-interface.svg";
 import Logo from "@/assets/images/logo-black.svg";
 import User1Img from "@/assets/images/user-1.jpg";
 import User2Img from "@/assets/images/user-2.png";
 import User3Img from "@/assets/images/user-3.jpg";
 import User4Img from "@/assets/images/user-4.png";
+import ConversationVideoSrc from "@/assets/videos/conversation.mp4";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { DotPattern } from "@/components/magicui/dot-pattern";
@@ -832,11 +832,14 @@ export default function Hero() {
 
 			<div className="container pt-32 lg:pt-0 flex items-center justify-center">
 				<BlurFade delay={0.25 + 0.05} inView>
-					<img
-						src={ChatInterfaceImg}
-						alt="Easechat"
-						className="max-w-full"
-					/>
+					<div className="w-full h-full bg-transparent rounded-lg overflow-hidden group aspect-video relative before:contents-[''] before:absolute before:w-[6px] before:h-full before:bg-accent before:left-0 before:top-0 drop-shadow-lg">
+						<video
+							src={ConversationVideoSrc}
+							className="w-full h-full object-cover bg-transparent"
+							autoPlay={true}
+							loop={true}
+						/>
+					</div>
 				</BlurFade>
 			</div>
 		</section>
