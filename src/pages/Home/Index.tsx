@@ -8,6 +8,7 @@ import FAQ from "./FAQ";
 import Testimonial from "./Testimonial";
 import Contact from "./Contact";
 import CTA from "./CTA";
+import DataFlow from "./DataFlow";
 
 export default function Home() {
 	return (
@@ -16,6 +17,7 @@ export default function Home() {
 			<BrandPartners />
 			<Feature />
 			<Process />
+			<DataFlow />
 			<PromotionalVideo />
 			<Pricing />
 			<FAQ />
