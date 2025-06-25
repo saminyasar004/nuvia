@@ -1,4 +1,5 @@
 import Layout from "@/components/common/Layout";
+import Login from "@/pages/auth/Login";
 import Home from "@/pages/Home/Index";
 import PrivacyPolicy from "@/pages/Legal/PrivacyPolicy";
 import TermsAndCondition from "@/pages/Legal/TermsAndCondition";
@@ -24,5 +25,9 @@ export const routes = [
 		path: "/privacy-policy",
 		element: PrivacyPolicy,
 		layout: Layout,
+	},
+	{
+		path: "/login",
+		element: Login,
 	},
 ];

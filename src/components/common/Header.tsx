@@ -62,10 +62,14 @@ export default function Header() {
 				</div>
 
 				<div className="lg:flex w-full hidden items-center justify-end gap-3">
-					<Button className="rounded-full">Sign Up</Button>
-					<Button variant="secondary" className="rounded-full">
-						Log in
-					</Button>
+					<Link to={"/signup"}>
+						<Button className="rounded-full">Sign Up</Button>
+					</Link>
+					<Link to={"/login"}>
+						<Button variant="secondary" className="rounded-full">
+							Log in
+						</Button>
+					</Link>
 				</div>
 
 				<div className="lg:hidden w-full flex items-center justify-end gap-3">
@@ -102,13 +106,19 @@ export default function Header() {
 							</div>
 						</div>
 						<SheetFooter className="pt-12 gap-4">
-							<Button className="rounded-full">Sign Up</Button>
-							<Button
-								variant="secondary"
-								className="rounded-full"
-							>
-								Log in
-							</Button>
+							<Link to={"/signup"}>
+								<Button className="rounded-full">
+									Sign Up
+								</Button>
+							</Link>
+							<Link to={"/login"}>
+								<Button
+									variant="secondary"
+									className="rounded-full"
+								>
+									Log in
+								</Button>
+							</Link>
 						</SheetFooter>
 					</SheetContent>
 				</Sheet>
