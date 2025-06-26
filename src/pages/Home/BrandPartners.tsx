@@ -1,11 +1,9 @@
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import AgodaImg from "@/assets/images/agoda.png";
-import HotmartImg from "@/assets/images/hotmart.svg";
-import LazadaImg from "@/assets/images/lazada.svg";
-import McDonaldsImg from "@/assets/images/mcdonalds.svg";
-import NotionImg from "@/assets/images/notion.png";
+import EnigmaImg from "@/assets/images/enigma.svg";
+import LuminaImg from "@/assets/images/lumina.svg";
+import SpectrumImg from "@/assets/images/spectrum.svg";
+import SynergyImg from "@/assets/images/synergy.svg";
+import VelocityImg from "@/assets/images/velocity.svg";
+import Marquee from "@/components/magicui/marquee";
 
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -16,37 +14,27 @@ export default function BrandPartners() {
 	const brands = [
 		{
 			id: 1,
-			img: McDonaldsImg,
-			title: "McDonald's",
+			img: SynergyImg,
+			title: "Agoda",
 		},
 		{
 			id: 2,
-			img: HotmartImg,
-			title: "Hotmart",
+			img: LuminaImg,
+			title: "Agoda",
 		},
 		{
 			id: 3,
-			img: LazadaImg,
-			title: "Lazada",
+			img: EnigmaImg,
+			title: "Agoda",
 		},
 		{
 			id: 4,
-			img: AgodaImg,
+			img: VelocityImg,
 			title: "Agoda",
 		},
 		{
 			id: 5,
-			img: HotmartImg,
-			title: "Hotmart",
-		},
-		{
-			id: 6,
-			img: AgodaImg,
-			title: "Agoda",
-		},
-		{
-			id: 7,
-			img: NotionImg,
+			img: SpectrumImg,
 			title: "Agoda",
 		},
 	];
@@ -59,40 +47,20 @@ export default function BrandPartners() {
 				</h5>
 			</div>
 
-			<div className="container">
-				<Swiper
-					modules={[Autoplay]}
-					spaceBetween={10}
-					breakpoints={{
-						0: {
-							slidesPerView: 1,
-						},
-						768: {
-							slidesPerView: 2,
-						},
-						1024: {
-							slidesPerView: 3,
-						},
-						1280: {
-							slidesPerView: 5,
-						},
-					}}
-					autoplay={{ delay: 2000, disableOnInteraction: false }}
-					loop={true}
-					className="overflow-hidden"
-				>
+			<div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+				<Marquee pauseOnHover reverse className="[--duration:10s]">
 					{brands.map((brand) => (
-						<SwiperSlide key={brand.id} className="mb-24">
-							<div className="flex items-center justify-center">
-								<img
-									src={brand.img}
-									alt={brand.title}
-									className="h-14 object-contain"
-								/>
-							</div>
-						</SwiperSlide>
+						<div className="flex items-center justify-center">
+							<img
+								src={brand.img}
+								alt={brand.title}
+								className="h-14 object-contain"
+							/>
+						</div>
 					))}
-				</Swiper>
+				</Marquee>
+				<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+				<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
 			</div>
 		</section>
 	);

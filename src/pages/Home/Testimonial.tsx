@@ -1,11 +1,8 @@
 import SectionHeading from "@/components/common/SectionHeading";
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from "@/components/ui/carousel";
+import Marquee from "@/components/magicui/marquee";
+import HeadingUnderline from "@/assets/images/heading-underline.svg";
+
+import { cn } from "@/lib/utils";
 
 export default function Testimonial() {
 	const testimonials = [
@@ -60,44 +57,48 @@ export default function Testimonial() {
 		},
 	];
 
+	const firstRow = testimonials.slice(0, testimonials.length / 2);
+	const secondRow = testimonials.slice(testimonials.length / 2);
+
 	return (
 		<section className="py-24" id="testimonials">
 			<div className="container relative overflow-hidden">
 				<SectionHeading
 					title={
-						<h2>
+						<h2 className="mb-4">
 							Trusted By Business{" "}
-							<span className="text-primary">Worldwide</span>
+							<span className="text-primary relative">
+								Worldwide
+								<img
+									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
+									src={HeadingUnderline}
+									alt=""
+								/>
+							</span>
 						</h2>
 					}
 					description="Don't just take our word for it. See what our customers have to say about Ease Chat"
 				/>
 
-				<div className="w-full py-20">
-					<Carousel
-						opts={{
-							loop: true,
-							duration: 10,
-						}}
-						className="w-full max-w-4xl mx-auto"
-					>
-						<CarouselContent>
-							{testimonials.map((testimonial, index) => (
-								<CarouselItem key={index}>
-									<TestimonialCard
-										key={index}
-										id={testimonial.id}
-										date={testimonial.date}
-										name={testimonial.name}
-										image={testimonial.image}
-										text={testimonial.text}
-									/>
-								</CarouselItem>
+				<div className="w-full py-8">
+					<div className="relative flex h-auto w-full flex-col items-center justify-center overflow-hidden">
+						<Marquee pauseOnHover className="[--duration:15s]">
+							{firstRow.map((review) => (
+								<TestimonialCard key={review.id} {...review} />
 							))}
-						</CarouselContent>
-						<CarouselPrevious className="bg-primary text-white hidden p-5 lg:flex justify-center items-center outline-none border-none hover:bg-primary/90 hover:text-white absolute left-[-70px] top-1/2 transform -translate-y-1/2" />
-						<CarouselNext className="bg-primary text-white hidden p-5 lg:flex justify-center items-center outline-none border-none hover:bg-primary/90 hover:text-white absolute right-[-70px] top-1/2 transform -translate-y-1/2" />
-					</Carousel>
+						</Marquee>
+						<Marquee
+							reverse
+							pauseOnHover
+							className="[--duration:15s]"
+						>
+							{secondRow.map((review) => (
+								<TestimonialCard key={review.id} {...review} />
+							))}
+						</Marquee>
+						<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+						<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -118,8 +119,8 @@ function TestimonialCard({
 	text: string;
 }) {
 	return (
-		<div className="bg-accent h-full lg:py-5 pb-5 rounded-lg overflow-y-hidden grid grid-cols-1 lg:grid-cols-3 gap-8 border-2 border-[##F1CF6D] border-dashed">
-			<div className="h-72 lg:w-72 w-full lg:rounded-r-2xl overflow-hidden flex items-center justify-center">
+		<div className="bg-accent h-full w-[16rem] lg:w-[50rem] overflow-x-hidden lg:py-5 pb-5 rounded-lg overflow-y-hidden grid grid-cols-1 lg:grid-cols-3 gap-8 border-2 border-[#F1CF6D] border-dashed">
+			<div className="h-60 lg:w-60 w-full lg:rounded-r-2xl overflow-hidden flex items-center justify-center">
 				<img
 					src={image}
 					alt={name}
@@ -146,3 +147,41 @@ function TestimonialCard({
 		</div>
 	);
 }
+
+const ReviewCard = ({
+	id,
+	date,
+	name,
+	image,
+	text,
+}: {
+	id: number;
+	date: string;
+	name: string;
+	image: string;
+	text: string;
+}) => {
+	return (
+		<figure
+			className={cn(
+				"relative h-full w-64 cursor-pointer overflow-hidden rounded-xl p-4",
+				"border-2 border-[#F1CF6D] border-dashed"
+			)}
+		>
+			<div className="flex flex-row items-center gap-2">
+				<img
+					className="rounded-full w-12 h-12 object-cover object-center"
+					alt=""
+					src={image}
+				/>
+				<div className="flex flex-col">
+					<p className="text-xs font-medium">{date}</p>
+					<figcaption className="text-sm font-medium">
+						{name}
+					</figcaption>
+				</div>
+			</div>
+			<blockquote className="mt-2 text-sm">{text}</blockquote>
+		</figure>
+	);
+};

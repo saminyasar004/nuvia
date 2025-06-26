@@ -1,11 +1,14 @@
-import SectionHeading from "@/components/common/SectionHeading";
-
-import MultiPlatformImg from "@/assets/images/multi-platform.svg";
-import CalendarImg from "@/assets/images/calendar.svg";
-import AIResponseImg from "@/assets/images/ai-response.svg";
-import LoyalCustomersImg from "@/assets/images/loyal-customers.svg";
-import StatisticsImg from "@/assets/images/statistics.svg";
 import R247Img from "@/assets/images/24-7.svg";
+import AIResponseImg from "@/assets/images/ai-response.svg";
+import CalendarImg from "@/assets/images/calendar.svg";
+import LoyalCustomersImg from "@/assets/images/loyal-customers.svg";
+import MultiPlatformImg from "@/assets/images/multi-platform.svg";
+import StatisticsImg from "@/assets/images/statistics.svg";
+import HeadingUnderline from "@/assets/images/heading-underline.svg";
+import SectionHeading from "@/components/common/SectionHeading";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 
 export default function Feature() {
 	const features = [
@@ -52,39 +55,89 @@ export default function Feature() {
 			<div className="container">
 				<SectionHeading
 					title={
-						<>
+						<div className="leading-snug mb-4">
 							<h2>Everything You Need to Automate</h2>
-							<h2 className="text-primary">
+							<h2 className="relative text-primary">
 								Customer Interactions
+								<img
+									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
+									src={HeadingUnderline}
+									alt=""
+								/>
 							</h2>
-						</>
+						</div>
 					}
 					description="Our platform provides all the tools you need to create intelligent chatbots that handle appointments, answer questions, and delight your customers."
 				/>
 
-				<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-8">
-					{features.map((feature, index) => (
-						<div
-							key={index}
-							className="flex flex-col items-center justify-center gap-4 bg-accent drop-shadow-md p-4 rounded-md text-center"
-						>
-							<div className="flex items-center justify-center">
-								<img
-									src={feature.img}
-									alt={feature.title}
-									className="max-w-full"
-								/>
-							</div>
-							<h3 className="font-semibold text-xl text-primary">
-								{feature.title}
-							</h3>
-							<p className="text-sm leading-normal">
-								{feature.description}
-							</p>
-						</div>
-					))}
+				<div className="container py-8">
+					<HoverEffect features={features} />
 				</div>
 			</div>
 		</section>
 	);
 }
+
+export const HoverEffect = ({
+	features,
+	className,
+}: {
+	features: {
+		img: string;
+		title: string;
+		description: string;
+	}[];
+	className?: string;
+}) => {
+	let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+	return (
+		<div
+			className={cn(
+				"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 gap-2",
+				className
+			)}
+		>
+			{features.map((feature, idx) => (
+				<div
+					className="relative group block p-2 h-full w-full"
+					onMouseEnter={() => setHoveredIndex(idx)}
+					onMouseLeave={() => setHoveredIndex(null)}
+				>
+					<AnimatePresence>
+						{hoveredIndex === idx && (
+							<motion.span
+								className="absolute inset-0 h-full w-full bg-primary block -z-10 rounded-md"
+								layoutId="hoverBackground"
+								initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { duration: 0.15 },
+								}}
+								exit={{
+									opacity: 0,
+									transition: { duration: 0.15, delay: 0.2 },
+								}}
+							/>
+						)}
+					</AnimatePresence>
+					<div className="h-full flex flex-col items-center justify-center gap-4 bg-accent drop-shadow-md p-4 rounded-md text-center hover:cursor-pointer">
+						<div className="flex items-center justify-center">
+							<img
+								src={feature.img}
+								alt={feature.title}
+								className="max-w-full"
+							/>
+						</div>
+						<h3 className="font-semibold text-xl text-primary">
+							{feature.title}
+						</h3>
+						<p className="text-sm leading-normal">
+							{feature.description}
+						</p>
+					</div>
+				</div>
+			))}
+		</div>
+	);
+};

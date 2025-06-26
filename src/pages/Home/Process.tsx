@@ -1,6 +1,7 @@
 import SectionHeading from "@/components/common/SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Star } from "lucide-react";
+import HeadingUnderline from "@/assets/images/heading-underline.svg";
 import { useEffect, useState, useRef } from "react";
 
 export default function Process() {
@@ -81,15 +82,18 @@ export default function Process() {
 			<div className="container py-24">
 				<SectionHeading
 					title={
-						<>
-							<h2>
-								Set Up Your{" "}
-								<span className="text-primary">
-									AI Chatbot{" "}
-								</span>
-								In Minutes
-							</h2>
-						</>
+						<h2 className="mb-4">
+							Set Up Your{" "}
+							<span className="text-primary relative">
+								AI Chatbot{" "}
+								<img
+									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
+									src={HeadingUnderline}
+									alt=""
+								/>
+							</span>
+							In Minutes
+						</h2>
 					}
 					description="Our platform makes it easy to create, customize, and deploy your own AI-powered chatbot without any technical expertise."
 				/>

@@ -1,19 +1,59 @@
-import Logo from "@/assets/images/logo-black.svg";
+import SparklesImg from "@/assets/images/sparkles.png";
 import User1Img from "@/assets/images/user-1.jpg";
 import User2Img from "@/assets/images/user-2.png";
 import User3Img from "@/assets/images/user-3.jpg";
 import User4Img from "@/assets/images/user-4.png";
 import ConversationVideoSrc from "@/assets/videos/conversation.mp4";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
+import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { BoxReveal } from "@/components/magicui/box-reveal";
 import { DotPattern } from "@/components/magicui/dot-pattern";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Sparkles } from "lucide-react";
-import { forwardRef, useRef } from "react";
+import { ChevronRight, Sparkles } from "lucide-react";
+import { forwardRef, useEffect, useRef } from "react";
 
 const Icons = {
+	web: () => (
+		<svg
+			width="800px"
+			height="800px"
+			viewBox="0 0 24 24"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<g id="style=linear" clip-path="url(#clip0_1_1825)">
+				<g id="web">
+					<path
+						id="vector"
+						d="M7.8 12L7.05 12L7.8 12ZM16.2 12H16.95H16.2ZM12 16.2V16.95V16.2ZM14.1729 22.2749L14.3273 23.0088L14.1729 22.2749ZM9.82712 22.2749L9.67269 23.0088L9.82712 22.2749ZM2.27554 8.03225L1.58122 7.74867H1.58122L2.27554 8.03225ZM1.7251 14.1729L0.991173 14.3273L1.7251 14.1729ZM9.82712 1.7251L9.67269 0.991173L9.82712 1.7251ZM14.1729 1.7251L14.3273 0.991174L14.1729 1.7251ZM21.6399 8.07014L21.8576 8.78785L21.6399 8.07014ZM2.35887 8.06976L2.14116 8.78747L2.35887 8.06976ZM21.0312 8.3185C21.4944 9.45344 21.75 10.6959 21.75 12H23.25C23.25 10.4983 22.9553 9.06352 22.42 7.75174L21.0312 8.3185ZM21.75 12C21.75 12.6927 21.6779 13.3678 21.541 14.0184L23.0088 14.3273C23.167 13.5757 23.25 12.7972 23.25 12H21.75ZM21.541 14.0184C20.7489 17.7827 17.7828 20.7489 14.0184 21.541L14.3273 23.0088C18.6735 22.0943 22.0943 18.6735 23.0088 14.3273L21.541 14.0184ZM14.0184 21.541C13.3678 21.6779 12.6927 21.75 12 21.75V23.25C12.7972 23.25 13.5757 23.167 14.3273 23.0088L14.0184 21.541ZM12 21.75C11.3072 21.75 10.6322 21.6779 9.98156 21.541L9.67269 23.0088C10.4242 23.167 11.2028 23.25 12 23.25V21.75ZM2.25 12C2.25 10.6949 2.50601 9.45149 2.96986 8.31584L1.58122 7.74867C1.0451 9.06127 0.75 10.4971 0.75 12H2.25ZM9.98156 21.541C6.21724 20.7489 3.25112 17.7827 2.45903 14.0184L0.991173 14.3273C1.90571 18.6735 5.32647 22.0943 9.67269 23.0088L9.98156 21.541ZM2.45903 14.0184C2.32213 13.3678 2.25 12.6927 2.25 12H0.75C0.75 12.7972 0.83303 13.5757 0.991173 14.3273L2.45903 14.0184ZM2.96986 8.31584C4.17707 5.36016 6.79381 3.1298 9.98155 2.45903L9.67269 0.991173C5.99032 1.76602 2.97369 4.33941 1.58122 7.74867L2.96986 8.31584ZM9.98155 2.45903C10.6322 2.32213 11.3072 2.25 12 2.25V0.75C11.2028 0.75 10.4242 0.83303 9.67269 0.991173L9.98155 2.45903ZM12 2.25C12.6927 2.25 13.3678 2.32213 14.0184 2.45903L14.3273 0.991174C13.5757 0.833031 12.7972 0.75 12 0.75V2.25ZM14.0184 2.45903C17.2071 3.13 19.8245 5.3615 21.0312 8.3185L22.42 7.75174C21.0281 4.34096 18.0108 1.76625 14.3273 0.991174L14.0184 2.45903ZM13.4584 1.95309C13.7482 2.8614 14.8215 6.35621 15.2615 9.5682L16.7476 9.36461C16.289 6.01664 15.1813 2.41835 14.8874 1.49712L13.4584 1.95309ZM15.2615 9.5682C15.3795 10.4292 15.45 11.2568 15.45 12L16.95 12C16.95 11.1681 16.8715 10.269 16.7476 9.36461L15.2615 9.5682ZM21.4222 7.35242C20.2692 7.70212 18.1033 8.3164 15.8685 8.72886L16.1407 10.204C18.4546 9.7769 20.6809 9.14473 21.8576 8.78785L21.4222 7.35242ZM15.8685 8.72886C14.5129 8.97904 13.1579 9.15 12 9.15L12 10.65C13.2874 10.65 14.743 10.4619 16.1407 10.204L15.8685 8.72886ZM15.45 12C15.45 13.1009 15.2954 14.3808 15.0647 15.671L16.5413 15.935C16.7797 14.6019 16.95 13.2252 16.95 12L15.45 12ZM15.0647 15.671C14.5591 18.4992 13.7097 21.2593 13.4584 22.0469L14.8874 22.5029C15.145 21.6956 16.0181 18.8613 16.5413 15.935L15.0647 15.671ZM22.0469 13.4584C21.2593 13.7097 18.4992 14.5591 15.671 15.0647L15.935 16.5413C18.8613 16.0181 21.6956 15.145 22.5029 14.8874L22.0469 13.4584ZM15.671 15.0647C14.3808 15.2954 13.1009 15.45 12 15.45L12 16.95C13.2252 16.95 14.6019 16.7797 15.935 16.5413L15.671 15.0647ZM12 15.45C10.8991 15.45 9.61923 15.2954 8.32897 15.0647L8.06496 16.5413C9.39807 16.7797 10.7748 16.95 12 16.95L12 15.45ZM8.32897 15.0647C5.50076 14.5591 2.74066 13.7097 1.95309 13.4584L1.49712 14.8874C2.30437 15.145 5.13873 16.0181 8.06496 16.5413L8.32897 15.0647ZM7.05 12C7.05 13.2252 7.22032 14.6019 7.45867 15.935L8.93526 15.671C8.70456 14.3808 8.55 13.1009 8.55 12L7.05 12ZM7.45867 15.935C7.98188 18.8613 8.85504 21.6956 9.11261 22.5029L10.5416 22.0469C10.2903 21.2593 9.44094 18.4992 8.93526 15.671L7.45867 15.935ZM9.11261 1.49712C8.81867 2.41835 7.711 6.01664 7.25235 9.36461L8.73846 9.5682C9.17849 6.35621 10.2518 2.8614 10.5416 1.95309L9.11261 1.49712ZM7.25235 9.36461C7.12846 10.269 7.05 11.1681 7.05 12L8.55 12C8.55 11.2568 8.62052 10.4292 8.73846 9.5682L7.25235 9.36461ZM12 9.15C10.8421 9.15 9.4871 8.97904 8.13152 8.72886L7.85929 10.204C9.25697 10.4619 10.7126 10.65 12 10.65L12 9.15ZM8.13152 8.72886C5.89586 8.31625 3.72921 7.70168 2.57657 7.35205L2.14116 8.78747C3.3175 9.14428 5.54457 9.77675 7.85929 10.204L8.13152 8.72886ZM21.38 7.3695C21.3919 7.3633 21.4065 7.35719 21.4222 7.35242L21.8576 8.78785C21.933 8.76498 22.0039 8.73569 22.0712 8.70074L21.38 7.3695ZM1.88425 8.67209C1.96322 8.72038 2.04888 8.75948 2.14116 8.78747L2.57657 7.35205C2.60983 7.36214 2.64048 7.3763 2.66683 7.39242L1.88425 8.67209Z"
+						fill="#000000"
+					/>
+				</g>
+			</g>
+			<defs>
+				<clipPath id="clip0_1_1825">
+					<rect width="24" height="24" fill="white" />
+				</clipPath>
+			</defs>
+		</svg>
+	),
+	user: () => (
+		<svg
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="#000000"
+			strokeWidth="2"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+			<circle cx="12" cy="7" r="4" />
+		</svg>
+	),
 	logo: () => (
 		<svg
 			width="98"
@@ -669,30 +709,93 @@ export default function Hero() {
 	const div6Ref = useRef<HTMLDivElement>(null);
 	const div7Ref = useRef<HTMLDivElement>(null);
 
+	const videoRef = useRef<HTMLVideoElement>(null);
+
+	// Handle video playback
+	useEffect(() => {
+		const video = videoRef.current;
+		if (video) {
+			const playVideo = () => {
+				video.play().catch((error) => {
+					console.error("Video autoplay failed:", error);
+					// Optional: Add a fallback (e.g., play button) if autoplay is blocked
+				});
+			};
+
+			// Attempt to play when the video metadata is loaded
+			video.addEventListener("loadedmetadata", playVideo);
+
+			// Cleanup event listener
+			return () => {
+				video.removeEventListener("loadedmetadata", playVideo);
+			};
+		}
+	}, []);
+
 	return (
 		<section className="w-full" id="home">
 			<div className="container h-[80vh] max-h-[700px] grid grid-cols-1 lg:grid-cols-2 py-12 lg:py-32">
 				<div className="h-full flex flex-col gap-6 text-center lg:text-left">
 					<div className="w-full flex flex-col gap-2 lg:gap-3 items-center justify-center lg:items-start text-center lg:text-left">
-						<h1 className="font-bold text-3xl lg:text-6xl">
-							Seamless Customer
-						</h1>
-						<h1 className="font-bold text-3xl lg:text-6xl text-primary flex gap-1">
-							Conversations with AI
-							<Sparkles fill="#9A70D3" />
-						</h1>
+						<div
+							data-aos="fade-right"
+							className="group relative flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] "
+						>
+							<span
+								className={cn(
+									"absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-primary/70 via-primary/50 to-secondary/50 bg-[length:300%_100%] p-[1px]"
+								)}
+								style={{
+									WebkitMask:
+										"linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+									WebkitMaskComposite: "destination-out",
+									mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+									maskComposite: "subtract",
+									WebkitClipPath: "padding-box",
+								}}
+							/>
+							<img
+								src={SparklesImg}
+								alt="sparkles"
+								className="max-w-5"
+							/>
+							<hr className="mx-2 h-4 w-px shrink-0 bg-foreground" />
+							<AnimatedGradientText className="text-sm font-medium">
+								Introducing Nuvia.ai
+							</AnimatedGradientText>
+							<ChevronRight className="ml-1 size-4 stroke-foregbg-foreground moving-horizontal" />
+						</div>
+
+						<BoxReveal boxColor={"#9A70D3"} duration={0.5}>
+							<h1 className="font-bold text-3xl lg:text-6xl">
+								Seamless Customer
+							</h1>
+						</BoxReveal>
+
+						<BoxReveal boxColor={"#9A70D3"} duration={0.7}>
+							<h1 className="font-bold text-3xl lg:text-6xl text-primary flex gap-1">
+								Conversations with AI
+								<Sparkles fill="#9A70D3" />
+							</h1>
+						</BoxReveal>
 					</div>
 
-					<p className="lg:w-[85%] w-full leading-relaxed">
-						Use the same platform across WhatsApp, Facebook, and
-						Instagram for better customer support workflow. Automate
-						bookings, process payments, and delight customers 24/7.
-					</p>
+					<BoxReveal boxColor={"#9A70D3"} duration={0.9}>
+						<p className="lg:w-[85%] w-full leading-relaxed">
+							Use the same platform across WhatsApp, Facebook, and
+							Instagram for better customer support workflow.
+							Automate bookings, process payments, and delight
+							customers 24/7.
+						</p>
+					</BoxReveal>
 
-					<div className="w-full flex lg:flex-row gap-6 items-center flex-col-reverse">
-						<Button size="lg" className="rounded-full">
+					<div
+						data-aos="fade-right"
+						className="w-full flex lg:flex-row gap-6 items-center flex-col-reverse"
+					>
+						<InteractiveHoverButton>
 							Get Started
-						</Button>
+						</InteractiveHoverButton>
 
 						<div className="w-max flex flex-col items-center gap-2">
 							<div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
@@ -741,40 +844,40 @@ export default function Hero() {
 					</div>
 				</div>
 
-				<div className="w-full h-full flex items-start justify-center relative">
+				<div
+					data-aos="fade-left"
+					className="w-full h-full flex items-start justify-center relative"
+				>
 					<div
 						className="relative flex h-[300px] w-full items-center justify-center overflow-hidden p-10"
 						ref={containerRef}
 					>
-						<div className="flex size-full max-h-[300px] max-w-lg flex-col items-stretch justify-between gap-10">
-							<div className="flex flex-row items-center justify-between">
+						<div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10">
+							<div className="flex flex-col justify-center gap-2">
 								<Circle ref={div1Ref}>
 									<Icons.facebook />
 								</Circle>
-								<Circle ref={div5Ref}>
-									<Icons.notion />
-								</Circle>
-							</div>
-							<div className="flex flex-row items-center justify-between">
 								<Circle ref={div2Ref}>
-									<Icons.instagram />
+									<Icons.messenger />
 								</Circle>
-								<Circle
-									ref={div4Ref}
-									className="size-20 bg-secondary"
-								>
-									<img src={Logo} alt="Easechat" />
-								</Circle>
-								<Circle ref={div6Ref}>
-									<Icons.googleDrive />
-								</Circle>
-							</div>
-							<div className="flex flex-row items-center justify-between">
 								<Circle ref={div3Ref}>
 									<Icons.whatsapp />
 								</Circle>
+								<Circle ref={div4Ref}>
+									<Icons.instagram />
+								</Circle>
+								<Circle ref={div5Ref}>
+									<Icons.web />
+								</Circle>
+							</div>
+							<div className="flex flex-col justify-center">
+								<Circle ref={div6Ref} className="size-16">
+									<Icons.logo />
+								</Circle>
+							</div>
+							<div className="flex flex-col justify-center">
 								<Circle ref={div7Ref}>
-									<Icons.gitHub />
+									<Icons.user />
 								</Circle>
 							</div>
 						</div>
@@ -782,43 +885,32 @@ export default function Hero() {
 						<AnimatedBeam
 							containerRef={containerRef}
 							fromRef={div1Ref}
-							toRef={div4Ref}
-							curvature={-75}
-							endYOffset={-10}
+							toRef={div6Ref}
 						/>
 						<AnimatedBeam
 							containerRef={containerRef}
 							fromRef={div2Ref}
-							toRef={div4Ref}
+							toRef={div6Ref}
 						/>
 						<AnimatedBeam
 							containerRef={containerRef}
 							fromRef={div3Ref}
-							toRef={div4Ref}
-							curvature={75}
-							endYOffset={10}
+							toRef={div6Ref}
+						/>
+						<AnimatedBeam
+							containerRef={containerRef}
+							fromRef={div4Ref}
+							toRef={div6Ref}
 						/>
 						<AnimatedBeam
 							containerRef={containerRef}
 							fromRef={div5Ref}
-							toRef={div4Ref}
-							curvature={-75}
-							endYOffset={-10}
-							reverse
+							toRef={div6Ref}
 						/>
 						<AnimatedBeam
 							containerRef={containerRef}
 							fromRef={div6Ref}
-							toRef={div4Ref}
-							reverse
-						/>
-						<AnimatedBeam
-							containerRef={containerRef}
-							fromRef={div7Ref}
-							toRef={div4Ref}
-							curvature={75}
-							endYOffset={10}
-							reverse
+							toRef={div7Ref}
 						/>
 					</div>
 
@@ -832,13 +924,18 @@ export default function Hero() {
 
 			<div className="container pt-32 lg:pt-0 flex items-center justify-center">
 				<BlurFade delay={0.25 + 0.05} inView>
-					<div className="w-full h-full bg-transparent rounded-lg overflow-hidden group aspect-video relative before:contents-[''] before:absolute before:w-[6px] before:h-full before:bg-accent before:left-0 before:top-0 drop-shadow-lg">
+					<div className="w-full h-full bg-transparent rounded-lg group aspect-video relative before:contents-[''] before:absolute before:w-[6px] before:h-full before:bg-accent before:left-0 before:top-0 drop-shadow-lg">
 						<video
+							ref={videoRef}
 							src={ConversationVideoSrc}
-							className="w-full h-full object-cover bg-transparent"
-							autoPlay={true}
-							loop={true}
+							className="w-full h-full object-cover rounded-lg"
+							autoPlay
+							playsInline
+							muted
+							loop
 						/>
+
+						<div className="w-[102%] h-[102%] rounded-lg bg-primary/10 border border-primary/80 backdrop-blur-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 -z-[1]"></div>
 					</div>
 				</BlurFade>
 			</div>

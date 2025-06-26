@@ -87,6 +87,10 @@ export default function Contact() {
 				</div>
 
 				<div className="flex flex-col gap-5">
+					<h3 className="font-bold text-3xl text-primary leading-tight">
+						Book a Demo
+					</h3>
+
 					<div className="form-group flex flex-col gap-2">
 						<Label className="text-primary font-medium cursor-pointer">
 							Name

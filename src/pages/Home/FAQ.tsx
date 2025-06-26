@@ -1,5 +1,6 @@
 import SectionHeading from "@/components/common/SectionHeading";
 import FAQBanner from "@/assets/images/faq-banner.svg";
+import HeadingUnderline from "@/assets/images/heading-underline.svg";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -35,10 +36,15 @@ export default function FAQ() {
 			<div className="container">
 				<SectionHeading
 					title={
-						<h2>
+						<h2 className="mb-4">
 							Frequently{" "}
-							<span className="text-primary">
+							<span className="text-primary relative">
 								Asked Questions
+								<img
+									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
+									src={HeadingUnderline}
+									alt=""
+								/>
 							</span>
 						</h2>
 					}

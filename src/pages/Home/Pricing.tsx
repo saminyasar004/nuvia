@@ -1,5 +1,6 @@
 import SectionHeading from "@/components/common/SectionHeading";
 import { Button } from "@/components/ui/button";
+import HeadingUnderline from "@/assets/images/heading-underline.svg";
 import {
 	Card,
 	CardContent,
@@ -65,9 +66,16 @@ export default function Pricing() {
 			<div className="container">
 				<SectionHeading
 					title={
-						<h2>
+						<h2 className="mb-4">
 							Simple,{" "}
-							<span className="text-primary">Transparent</span>{" "}
+							<span className="text-primary relative">
+								Transparent
+								<img
+									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
+									src={HeadingUnderline}
+									alt=""
+								/>
+							</span>{" "}
 							Pricing
 						</h2>
 					}

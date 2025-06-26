@@ -105,7 +105,7 @@ export default function Header() {
 								))}
 							</div>
 						</div>
-						<SheetFooter className="pt-12 gap-4">
+						<SheetFooter className="pt-12 gap-4 items-end">
 							<Link to={"/signup"}>
 								<Button className="rounded-full">
 									Sign Up
