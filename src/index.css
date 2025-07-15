@@ -14,6 +14,18 @@
 		@apply bg-background text-foreground cursor-default font-roboto;
 	}
 
+	::-webkit-scrollbar {
+		@apply w-2 h-2;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply bg-secondary;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-theme rounded-md;
+	}
+
 	.theme {
 		--animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
 		--animate-marquee: marquee var(--duration) infinite linear;
