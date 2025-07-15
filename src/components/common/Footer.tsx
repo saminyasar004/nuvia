@@ -1,7 +1,10 @@
 import Logo from "@/assets/images/logo-white.svg";
+import FacebookImg from "@/assets/images/facebook.svg";
+import InstagramImg from "@/assets/images/instagram.svg";
+import WhatsappImg from "@/assets/images/whatsapp.svg";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import { MoveRight } from "lucide-react";
+import { Facebook, MoveRight } from "lucide-react";
 
 export default function Footer() {
 	const navMenus = [
@@ -14,20 +17,46 @@ export default function Footer() {
 	];
 
 	return (
-		<footer className="bg-darkBlue w-full py-12">
+		<footer className="bg-theme w-full py-12">
 			<div className="container grid grid-cols-1 lg:grid-cols-5 gap-5 lg:gap-0">
 				<div className="lg:col-span-2 flex flex-col gap-4">
 					<img
 						src={Logo}
-						alt="easechat"
+						alt="nuvía"
 						className="max-w-[40%] lg:max-w-[20%]"
 					/>
 
-					<p className="text-[#A8A6B3] text-sm font-medium lg:w-[60%] leading-normal">
+					<p className="text-white text-sm font-medium lg:w-[60%] leading-normal">
 						AI-powered chatbots for businesses of all sizes.
 						Automate appointment booking, answer customer questions,
 						and grow your business.
 					</p>
+
+					<div className="flex gap-3">
+						<a href="#">
+							<img
+								src={FacebookImg}
+								alt="Facebook"
+								className="max-w-full"
+							/>
+						</a>
+
+						<a href="#">
+							<img
+								src={InstagramImg}
+								alt="Instagram"
+								className="max-w-full"
+							/>
+						</a>
+
+						<a href="#">
+							<img
+								src={WhatsappImg}
+								alt="WhatsApp"
+								className="max-w-full"
+							/>
+						</a>
+					</div>
 				</div>
 
 				<div className="flex flex-col gap-4">
@@ -35,16 +64,16 @@ export default function Footer() {
 						Legal Information
 					</h4>
 
-					<div className="flex flex-col gap-2 text-[#A8A6B3]">
+					<div className="flex flex-col gap-2 text-white">
 						<Link
 							to={"/privacy-policy"}
-							className="w-max hover:underline hover:text-primary transition-all duration-150"
+							className="w-max hover:underline transition-all duration-150"
 						>
 							Privacy / Policy
 						</Link>
 						<Link
 							to={"/terms-and-condition"}
-							className="w-max hover:underline hover:text-primary transition-all duration-150"
+							className="w-max hover:underline transition-all duration-150"
 						>
 							Terms & Conditions
 						</Link>
@@ -56,12 +85,12 @@ export default function Footer() {
 						Navigation Links
 					</h4>
 
-					<div className="flex flex-col gap-2 text-[#A8A6B3]">
+					<div className="flex flex-col gap-2 text-white">
 						{navMenus.map((menu, index) => (
 							<a
 								key={index}
 								href={menu.url}
-								className="w-max hover:underline hover:text-primary transition-all duration-150"
+								className="w-max hover:underline transition-all duration-150"
 							>
 								{menu.title}
 							</a>

@@ -162,10 +162,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 						onClick={handleSeek}
 					>
 						<div
-							className="h-full bg-purple-500 rounded-full relative transition-all duration-150"
+							className="h-full bg-primary rounded-full relative transition-all duration-150"
 							style={{ width: `${progressPercent}%` }}
 						>
-							<div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-purple-500 rounded-full opacity-0 group-hover/progress:opacity-100 transition-opacity duration-150 -mr-2" />
+							<div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full opacity-0 group-hover/progress:opacity-100 transition-opacity duration-150 -mr-2" />
 						</div>
 					</div>
 
@@ -174,7 +174,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 						<div className="flex items-center space-x-4">
 							<button
 								onClick={togglePlay}
-								className="hover:text-purple-400 transition-colors duration-200"
+								className="hover:text-primary transition-colors duration-200"
 							>
 								{isPlaying ? (
 									<Pause className="w-5 h-5" />
@@ -217,7 +217,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
 						<button
 							onClick={toggleFullscreen}
-							className="hover:text-purple-400 transition-colors duration-200"
+							className="hover:text-primary transition-colors duration-200"
 						>
 							<Maximize className="w-5 h-5" />
 						</button>

@@ -1,10 +1,10 @@
 import React from "react";
-import { Search, MessageCircle } from "lucide-react";
+import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Conversation } from "./Conversations";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import LogoBlack from "@/assets/images/logo-black.svg";
+import LogoBlack from "@/assets/images/logo.svg";
 import WhatsappIcon from "@/assets/images/whatsapp.svg";
 import FacebookIcon from "@/assets/images/facebook.svg";
 import InstagramIcon from "@/assets/images/instagram.svg";
@@ -90,7 +90,7 @@ export const ConversationList: React.FC<ConversationListProps> = ({
 					<div className="w-full flex items-center justify-center">
 						<img
 							src={LogoBlack}
-							alt="Easechat"
+							alt="nuvía"
 							className="max-w-[70%]"
 						/>
 					</div>

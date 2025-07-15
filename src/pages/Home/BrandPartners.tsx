@@ -3,6 +3,7 @@ import LuminaImg from "@/assets/images/lumina.svg";
 import SpectrumImg from "@/assets/images/spectrum.svg";
 import SynergyImg from "@/assets/images/synergy.svg";
 import VelocityImg from "@/assets/images/velocity.svg";
+import LeafLeftImg from "@/assets/images/leaf-left.svg";
 import Marquee from "@/components/magicui/marquee";
 
 import "swiper/css";
@@ -40,7 +41,13 @@ export default function BrandPartners() {
 	];
 
 	return (
-		<section className="py-24">
+		<section className="py-24 relative">
+			<img
+				src={LeafLeftImg}
+				alt="leaf-left"
+				className="absolute top-5 left-0 max-w-full z-10"
+			/>
+
 			<div className="container pb-12">
 				<h5 className="font-medium text-primary text-center">
 					Trusted by service professionals across industries

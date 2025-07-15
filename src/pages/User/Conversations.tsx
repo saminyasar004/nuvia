@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ConversationList } from "./ConversationList";
 import { ChatArea } from "./ChatArea";
 import DashboardHeader from "@/components/common/DashboardHeader";

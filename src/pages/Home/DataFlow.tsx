@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import WorkflowImg from "@/assets/images/workflow.svg";
 import DataFlowVideoSrc from "@/assets/videos/data-flow.mp4";
 
 export default function DataFlow() {
@@ -26,9 +27,15 @@ export default function DataFlow() {
 	}, []);
 
 	return (
-		<section className="py-16 border border-dashed border-[#F1CF6D] mb-32">
-			<div className="container">
-				<div className="w-full h-full bg-transparent rounded-lg overflow-hidden group aspect-video relative before:contents-[''] before:absolute before:w-full before:h-[6px] before:bg-background before:left-0 before:bottom-0">
+		<section className="py-16 border border-dashed border-theme mb-32">
+			<div className="container flex items-center justify-center">
+				<img
+					src={WorkflowImg}
+					alt="workflowimg"
+					className="max-w-full"
+				/>
+
+				{/* <div className="w-full h-full bg-transparent rounded-lg overflow-hidden group aspect-video relative before:contents-[''] before:absolute before:w-full before:h-[6px] before:bg-background before:left-0 before:bottom-0">
 					<video
 						ref={videoRef}
 						src={DataFlowVideoSrc}
@@ -38,7 +45,7 @@ export default function DataFlow() {
 						playsInline
 						loop
 					/>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	);

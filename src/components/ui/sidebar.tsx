@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -74,7 +73,7 @@ export const SidebarBody = (props: React.ComponentProps<typeof motion.div>) => {
 	return (
 		<>
 			<DesktopSidebar {...props} />
-			<MobileSidebar {...(props as React.ComponentProps<"div">)} />
+			<MobileSidebar {...(props as any)} />
 		</>
 	);
 };

@@ -67,7 +67,7 @@ export default function Testimonial() {
 					title={
 						<h2 className="mb-4">
 							Trusted By Business{" "}
-							<span className="text-primary relative">
+							<span className="text-theme relative">
 								Worldwide
 								<img
 									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
@@ -119,7 +119,7 @@ function TestimonialCard({
 	text: string;
 }) {
 	return (
-		<div className="bg-accent h-full w-[16rem] lg:w-[50rem] overflow-x-hidden lg:py-5 pb-5 rounded-lg overflow-y-hidden grid grid-cols-1 lg:grid-cols-3 gap-8 border-2 border-[#F1CF6D] border-dashed">
+		<div className="bg-accent h-full w-[16rem] lg:w-[50rem] overflow-x-hidden lg:py-5 pb-5 rounded-lg overflow-y-hidden grid grid-cols-1 lg:grid-cols-3 gap-8 border-2 border-theme border-dashed">
 			<div className="h-60 lg:w-60 w-full lg:rounded-r-2xl overflow-hidden flex items-center justify-center">
 				<img
 					src={image}

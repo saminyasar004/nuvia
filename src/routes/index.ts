@@ -6,6 +6,8 @@ import PrivacyPolicy from "@/pages/Legal/PrivacyPolicy";
 import TermsAndCondition from "@/pages/Legal/TermsAndCondition";
 import Dashboard from "@/pages/User/Dashboard";
 import Conversations from "@/pages/User/Conversations";
+import Appointments from "@/pages/User/Appointments";
+import Customers from "@/pages/User/Customers";
 
 export interface Route {
 	path: string;
@@ -41,6 +43,16 @@ export const routes = [
 	{
 		path: "/user/conversations",
 		element: Conversations,
+		layout: UserDashboardLayout,
+	},
+	{
+		path: "/user/appointments",
+		element: Appointments,
+		layout: UserDashboardLayout,
+	},
+	{
+		path: "/user/customers",
+		element: Customers,
 		layout: UserDashboardLayout,
 	},
 ];

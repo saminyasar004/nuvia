@@ -1,4 +1,4 @@
-import Logo from "@/assets/images/logo-black.svg";
+import Logo from "@/assets/images/logo.svg";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
@@ -20,7 +20,7 @@ export default function Login() {
 							<Link to={"/"}>
 								<img
 									src={Logo}
-									alt="Easechat"
+									alt="nuvía"
 									className="max-w-full"
 								/>
 							</Link>
