@@ -7,8 +7,14 @@ export default function Layout({ children }) {
 	const location = useLocation();
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [location.pathname]);
+		const hash = location.hash;
+		if (hash) {
+			const element = document.getElementById(hash.substring(1)); // Remove the '#' from hash
+			if (element) {
+				element.scrollIntoView({ behavior: "smooth" });
+			}
+		}
+	}, [location]);
 
 	return (
 		<>

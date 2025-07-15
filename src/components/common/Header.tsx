@@ -1,4 +1,4 @@
-import Logo from "@/assets/images/logo-black.svg";
+import Logo from "@/assets/images/logo.svg";
 import { Sheet, SheetContent, SheetFooter } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { AlignRight } from "lucide-react";
@@ -31,11 +31,7 @@ export default function Header() {
 			<div className="container grid grid-cols-2 lg:grid-cols-4 gap-3 items-center">
 				<div className="flex items-center justify-start">
 					<Link to={"/"}>
-						<img
-							src={Logo}
-							alt="easechat"
-							className="max-w-[70%] lg:max-w-full"
-						/>
+						<img src={Logo} alt="nuvía" className="max-w-[70%]" />
 					</Link>
 				</div>
 

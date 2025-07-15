@@ -7,11 +7,11 @@ export default function CTA() {
 	const confettiRef = useRef<ConfettiRef>(null);
 
 	return (
-		<section className="py-16 bg-accent border border-dashed border-[#F1CF6D] mb-32">
+		<section className="py-16 bg-accent border border-dashed border-theme mb-32">
 			<div className="container grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
 				<div className="relative flex flex-col gap-3 items-center lg:items-start text-center lg:text-left">
 					<div className="relative">
-						<h3 className="font-bold text-3xl lg:text-5xl text-primary">
+						<h3 className="font-bold text-3xl lg:text-5xl text-theme">
 							Ready to Transform Your Customer Service?
 						</h3>
 
@@ -38,7 +38,7 @@ export default function CTA() {
 				<div className="w-full flex items-center justify-center lg:justify-end">
 					<img
 						src={Favicon}
-						alt="Easechat"
+						alt="nuvía"
 						className="max-w-[70%] lg:max-w-full"
 					/>
 				</div>

@@ -26,7 +26,7 @@ export default function DashboardHeader({
 			</div>
 			<div className="flex items-center gap-4">
 				<span className="flex items-center cursor-pointer text-warning">
-					<Bell fill="#FBB03B" size={20} />
+					<Bell className="fill-theme text-theme" size={20} />
 				</span>
 
 				<DropdownMenu>

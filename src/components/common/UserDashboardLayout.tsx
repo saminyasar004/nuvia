@@ -1,5 +1,7 @@
 import LogoIconImg from "@/assets/images/favicon.svg";
-import LogoBlack from "@/assets/images/logo-black.svg";
+import LogoBlack from "@/assets/images/logo.svg";
+import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 import {
 	Blocks,
 	BriefcaseBusiness,
@@ -12,10 +14,6 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
-import { Button } from "../ui/button";
-import { cn } from "@/lib/utils";
 
 export default function UserDashboardLayout({ children }) {
 	const location = useLocation();
@@ -48,7 +46,7 @@ export default function UserDashboardLayout({ children }) {
 		},
 		{
 			label: "Subscriptions",
-			href: "/user/customers",
+			href: "/user/subscriptions",
 			icon: <Tags size={20} className="shrink-0" />,
 		},
 		{
@@ -104,19 +102,11 @@ export const Logo = () => {
 			to="/"
 			className="relative z-20 flex items-center justify-center space-x-2 py-1 text-sm font-normal text-black pl-1"
 		>
-			{/* <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" /> */}
 			<img
 				src={LogoBlack}
-				alt="Easechat"
-				className="max-w-full h-10 transition-all duration-300"
+				alt="nuvía"
+				className="max-w-full h-16 transition-all duration-300"
 			/>
-			{/* <motion.span
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				className="font-medium whitespace-pre text-primary"
-			>
-				Easechat
-			</motion.span> */}
 		</Link>
 	);
 };
@@ -126,38 +116,11 @@ export const LogoIcon = () => {
 			to="/"
 			className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black pl-1"
 		>
-			{/* <div className="h-5 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" /> */}
 			<img
 				src={LogoIconImg}
-				alt="Easechat"
-				className="max-w-6 h-10 transition-all duration-300"
+				alt="nuvía"
+				className="max-w-full h-16 transition-all duration-300"
 			/>
 		</Link>
-	);
-};
-
-// Dummy dashboard component with content
-const Dashboard = () => {
-	return (
-		<div className="flex flex-1">
-			<div className="flex h-full w-full flex-1 flex-col gap-2 rounded-tl-2xl border border-neutral-200 bg-white p-2 md:p-10 dark:border-neutral-700 dark:bg-neutral-900">
-				<div className="flex gap-2">
-					{[...new Array(4)].map((i, idx) => (
-						<div
-							key={"first-array-demo-1" + idx}
-							className="h-20 w-full animate-pulse rounded-lg bg-gray-100 dark:bg-neutral-800"
-						></div>
-					))}
-				</div>
-				<div className="flex flex-1 gap-2">
-					{[...new Array(2)].map((i, idx) => (
-						<div
-							key={"second-array-demo-1" + idx}
-							className="h-full w-full animate-pulse rounded-lg bg-gray-100 dark:bg-neutral-800"
-						></div>
-					))}
-				</div>
-			</div>
-		</div>
 	);
 };

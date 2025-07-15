@@ -3,6 +3,8 @@ import User1Img from "@/assets/images/user-1.jpg";
 import User2Img from "@/assets/images/user-2.png";
 import User3Img from "@/assets/images/user-3.jpg";
 import User4Img from "@/assets/images/user-4.png";
+import HeroLeafImg from "@/assets/images/hero-leaf-element.svg";
+import HeroChatboxImg from "@/assets/images/hero-chatbox.svg";
 import ConversationVideoSrc from "@/assets/videos/conversation.mp4";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
@@ -733,7 +735,16 @@ export default function Hero() {
 	}, []);
 
 	return (
-		<section className="w-full" id="home">
+		<section
+			className="w-full bg-gradient-to-r from-[#B29655]/0 to-[#CFAD60]/20 relative"
+			id="home"
+		>
+			<img
+				src={HeroLeafImg}
+				alt="hero-leaf"
+				className="absolute top-10 right-0 max-w-full"
+			/>
+
 			<div className="container h-[80vh] max-h-[700px] grid grid-cols-1 lg:grid-cols-2 py-12 lg:py-32">
 				<div className="h-full flex flex-col gap-6 text-center lg:text-left">
 					<div className="w-full flex flex-col gap-2 lg:gap-3 items-center justify-center lg:items-start text-center lg:text-left">
@@ -761,31 +772,32 @@ export default function Hero() {
 							/>
 							<hr className="mx-2 h-4 w-px shrink-0 bg-foreground" />
 							<AnimatedGradientText className="text-sm font-medium">
-								Introducing Nuvia.ai
+								Introducing NuVía
 							</AnimatedGradientText>
 							<ChevronRight className="ml-1 size-4 stroke-foregbg-foreground moving-horizontal" />
 						</div>
 
-						<BoxReveal boxColor={"#9A70D3"} duration={0.5}>
-							<h1 className="font-bold text-3xl lg:text-6xl">
-								Seamless Customer
+						<BoxReveal boxColor={"#517B62"} duration={0.5}>
+							<h1 className="font-bold text-3xl lg:text-4xl">
+								Smart AI Receptionist for Calm,
 							</h1>
 						</BoxReveal>
 
-						<BoxReveal boxColor={"#9A70D3"} duration={0.7}>
-							<h1 className="font-bold text-3xl lg:text-6xl text-primary flex gap-1">
-								Conversations with AI
-								<Sparkles fill="#9A70D3" />
+						<BoxReveal boxColor={"#517B62"} duration={0.7}>
+							<h1 className="font-bold text-3xl lg:text-4xl text-theme flex gap-1">
+								Growing, and Busy Wellness Brands
+								{/* <Sparkles className="fill-theme" /> */}
 							</h1>
 						</BoxReveal>
 					</div>
 
-					<BoxReveal boxColor={"#9A70D3"} duration={0.9}>
+					<BoxReveal boxColor={"#517B62"} duration={0.9}>
 						<p className="lg:w-[85%] w-full leading-relaxed">
-							Use the same platform across WhatsApp, Facebook, and
-							Instagram for better customer support workflow.
-							Automate bookings, process payments, and delight
-							customers 24/7.
+							Let NuVía handle bookings, fill empty slots,
+							summarize chats, and assist clients 24/7, across
+							WhatsApp, Instagram, and more. Designed for spas,
+							therapists, and boutique clinics who want peace of
+							mind and full calendars
 						</p>
 					</BoxReveal>
 
@@ -794,7 +806,7 @@ export default function Hero() {
 						className="w-full flex lg:flex-row gap-6 items-center flex-col-reverse"
 					>
 						<InteractiveHoverButton>
-							Get Started
+							Try NuVía Free
 						</InteractiveHoverButton>
 
 						<div className="w-max flex flex-col items-center gap-2">
@@ -922,9 +934,16 @@ export default function Hero() {
 				</div>
 			</div>
 
-			<div className="container pt-32 lg:pt-0 flex items-center justify-center">
+			<div className="container py-32 lg:pt-0 flex items-center justify-center">
 				<BlurFade delay={0.25 + 0.05} inView>
-					<div className="w-full h-full bg-transparent rounded-lg group aspect-video relative before:contents-[''] before:absolute before:w-[6px] before:h-full before:bg-accent before:left-0 before:top-0 drop-shadow-lg">
+					<img
+						src={HeroChatboxImg}
+						alt="hero-chatbox"
+						className="w-full h-full object-cover rounded-lg"
+					/>
+
+					{/* <div className="w-full h-full bg-transparent rounded-lg group aspect-video relative before:contents-[''] before:absolute before:w-[6px] before:h-full before:bg-accent before:left-0 before:top-0 drop-shadow-lg">
+					
 						<video
 							ref={videoRef}
 							src={ConversationVideoSrc}
@@ -936,7 +955,7 @@ export default function Hero() {
 						/>
 
 						<div className="w-[102%] h-[102%] rounded-lg bg-primary/10 border border-primary/80 backdrop-blur-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 -z-[1]"></div>
-					</div>
+					</div> */}
 				</BlurFade>
 			</div>
 		</section>

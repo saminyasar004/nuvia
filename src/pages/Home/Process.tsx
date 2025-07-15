@@ -1,4 +1,6 @@
 import SectionHeading from "@/components/common/SectionHeading";
+import AtomicBoomImg from "@/assets/images/atomic-boom.svg";
+import VerticalPathImg from "@/assets/images/vertical-path.svg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Star } from "lucide-react";
 import HeadingUnderline from "@/assets/images/heading-underline.svg";
@@ -10,33 +12,33 @@ export default function Process() {
 
 	const steps = [
 		{
-			title: "Sign Up and Connect",
+			title: "Sign Up & Connect Your Channels",
 			description:
-				"Create your account and connect your WhatsApp Business account to get started.",
+				"Create your NuVía account and securely connect your WhatsApp Business, Instagram, or Messenger.",
 			position: "left",
 		},
 		{
-			title: "Choose Your Subscription Plan",
+			title: "Choose a Plan That Fits",
 			description:
-				"Add your business details, services, pricing, and availability to train your chatbot.",
+				"Select your ideal subscription. Whether you're solo or scaling, NuVía grows with your needs.",
 			position: "right",
 		},
 		{
-			title: "Configure Your Business Profile",
+			title: "Build Your Service Profil",
 			description:
-				"Add your business details, services, pricing, and availability to train your chatbot.",
+				"Input your business hours, pricing, services, and policies — everything your AI needs to serve clients accurately.",
 			position: "left",
 		},
 		{
-			title: "Customize Your Chatbot",
+			title: "Personalize Your Chatbot's Voice",
 			description:
-				"Personalize your chatbot's personality, responses, and conversation flow.",
+				"Make your assistant sound like you. Customize tone, language, and conversation flow.",
 			position: "right",
 		},
 		{
-			title: "Launch and Monitor",
+			title: "Launch and Start Helping Clients Instantly",
 			description:
-				"Activate your chatbot and track its performance through our comprehensive dashboard.",
+				"Go live and watch NuVía manage inquiries, fill slots, and respond around the clock — all from one dashboard.",
 			position: "left",
 		},
 	];
@@ -77,15 +79,33 @@ export default function Process() {
 		<section
 			ref={sectionRef}
 			id="how-it-works"
-			className="relative pb-24 overflow-hidden"
+			className="relative pb-24 overflow-hidden bg-white/25"
 		>
+			<img
+				src={AtomicBoomImg}
+				alt="AtomicBoomImg"
+				className="absolute left-0 top-0 max-w-full -z-10"
+			/>
+
+			<img
+				src={VerticalPathImg}
+				alt="VerticalPathImg"
+				className="absolute right-5 top-0 h-full -z-10"
+			/>
+
+			<img
+				src={AtomicBoomImg}
+				alt="AtomicBoomImg"
+				className="absolute left-1/2 bottom-2 max-w-full -z-10"
+			/>
+
 			<div className="container py-24">
 				<SectionHeading
 					title={
 						<h2 className="mb-4">
 							Set Up Your{" "}
-							<span className="text-primary relative">
-								AI Chatbot{" "}
+							<span className="text-theme relative">
+								NuVía{" "}
 								<img
 									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
 									src={HeadingUnderline}
@@ -95,22 +115,23 @@ export default function Process() {
 							In Minutes
 						</h2>
 					}
-					description="Our platform makes it easy to create, customize, and deploy your own AI-powered chatbot without any technical expertise."
+					description="From WhatsApp integration to smart client conversations — your AI assistant is ready in just a few 
+clicks."
 				/>
 			</div>
 
 			<div className="container relative">
 				{/* Background decorative elements */}
-				<div className="absolute -top-16 md:top-0 right-32 text-primary animate-pulse">
+				<div className="absolute -top-16 md:top-0 right-32 text-[#A8B4A2] animate-pulse">
 					<Star className="w-8 h-8 fill-current" />
 				</div>
-				<div className="absolute -top-20 md:top-32 right-48 text-primary animate-bounce">
+				<div className="absolute -top-20 md:top-32 right-48 text-[#A8B4A2] animate-bounce">
 					<Sparkles className="w-5 h-5 fill-current" />
 				</div>
-				<div className="absolute -bottom-16 md:bottom-0 right-12 md:right-96 text-primary animate-pulse">
+				<div className="absolute -bottom-16 md:bottom-0 right-12 md:right-96 text-[#A8B4A2] animate-pulse">
 					<Star className="w-8 h-8 fill-current" />
 				</div>
-				<div className="absolute -bottom-24 md:bottom-32 md:right-52 right-52 text-primary animate-bounce">
+				<div className="absolute -bottom-24 md:bottom-32 md:right-52 right-52 text-[#A8B4A2] animate-bounce">
 					<Sparkles className="w-6 h-6 fill-current" />
 				</div>
 
@@ -135,8 +156,8 @@ export default function Process() {
 							key={index}
 							className={`absolute w-4 h-4 rounded-full transform -translate-x-1/2 transition-all duration-500 ease-out ${
 								index <= activeStep
-									? "bg-purple-500 scale-110 shadow-lg shadow-purple-300"
-									: "bg-purple-200 scale-100"
+									? "bg-primary scale-110 shadow-lg shadow-primary/300"
+									: "bg-primary/20 scale-100"
 							}`}
 							style={{
 								top: `${(index * 100) / (steps.length - 2)}%`,
@@ -145,7 +166,7 @@ export default function Process() {
 						>
 							{/* Pulsing ring for active dot */}
 							{index === activeStep && (
-								<div className="absolute inset-0 rounded-full bg-purple-400 animate-ping opacity-75" />
+								<div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
 							)}
 						</div>
 					))}
@@ -176,7 +197,7 @@ export default function Process() {
 								<Card
 									className={`bg-accent/50 border-2 backdrop-blur-lg ml-3 md:ml-0 ${
 										index <= activeStep
-											? "border-primary"
+											? "border-theme"
 											: "border-secondary"
 									}`}
 								>
@@ -184,8 +205,8 @@ export default function Process() {
 										<h3
 											className={`text-xl font-semibold mb-3 transition-colors duration-500 ${
 												index <= activeStep
-													? "text-primary"
-													: "text-primary/50"
+													? "text-theme"
+													: "text-theme/50"
 											}`}
 										>
 											{step.title}

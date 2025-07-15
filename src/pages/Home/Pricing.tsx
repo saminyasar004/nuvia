@@ -1,3 +1,5 @@
+import LeafLeftImg from "@/assets/images/leaf-left.svg";
+import LeafRightImg from "@/assets/images/leaf-right.svg";
 import SectionHeading from "@/components/common/SectionHeading";
 import { Button } from "@/components/ui/button";
 import HeadingUnderline from "@/assets/images/heading-underline.svg";
@@ -23,52 +25,64 @@ export default function Pricing() {
 			title: "Starter",
 			description:
 				"Perfect for small businesses just getting started with automation.",
-			price: "$29",
+			price: "RM 0",
 			features: [
-				"Up to 1,000 conversations/month",
-				"1 WhatsApp Business account",
-				"Basic appointment booking",
+				"Up to 50 AI replies/month",
+				"Appointment scheduling",
+				" WhatsApp Web only",
 				"Email support",
 			],
-			buttonText: "Get Started",
+			buttonText: "Start Free",
 		},
 		{
-			title: "Professional",
+			title: "Growth",
 			description:
 				"Ideal for growing businesses with multiple service offerings.",
-			price: "$79",
+			price: "RM 99",
 			features: [
-				"Up to 5,000 conversations/month",
-				"WhatsApp + Facebook + Instagram",
-				"Payment integration",
-				"Advanced analytics",
+				"Unlimited AI replies/month",
+				"Auto reminders",
+				"Client dashboard",
+				" Priority chat suppor",
 			],
 			buttonText: "Get Started",
 		},
 		{
-			title: "Enterprise",
+			title: "Pro",
 			description:
 				"For established businesses with high volume requirements.",
-			price: "$199",
+			price: "RM 299",
 			features: [
-				"Unlimited Chatbots",
-				"Unlimited conversations",
-				"All calendar integrations",
-				"Custom analytics & reporting",
-				"24/7 dedicated support",
+				"Cross-platform (WA/IG/Messenger",
+				"Voice note detection",
+				"Smart suggestion",
+				"Promo tools",
+				"Full analytics",
 			],
 			buttonText: "Get Started",
 		},
 	];
 
 	return (
-		<section className="py-24" id="pricing">
+		<section className="py-24 relative my-6" id="pricing">
+			<img
+				src={LeafLeftImg}
+				alt="leaf-left"
+				className="absolute top-50 left-0 max-w-full -z-10"
+			/>
+
+			<img
+				src={LeafRightImg}
+				alt="leaf-right"
+				className="absolute bottom-0 right-0 max-w-full -z-10"
+			/>
+
 			<div className="container">
 				<SectionHeading
 					title={
 						<h2 className="mb-4">
 							Simple,{" "}
-							<span className="text-primary relative">
+							<span className="text-theme relative">
 								Transparent
 								<img
 									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
@@ -89,7 +103,7 @@ export default function Pricing() {
 							className="bg-accent border-primary rounded-3xl p-2 h-full"
 						>
 							<CardHeader className="space-y-3">
-								<h3 className="font-bold text-3xl lg:text-4xl text-primary">
+								<h3 className="font-bold text-3xl lg:text-4xl text-theme">
 									{plan.title}
 								</h3>
 								<p className="leading-normal text-sm lg:text-base">
@@ -120,10 +134,7 @@ export default function Pricing() {
 											key={index}
 											className="flex items-center gap-2"
 										>
-											<BadgeCheck
-												className="text-white"
-												fill="#9A70D3"
-											/>
+											<BadgeCheck className="text-white fill-theme" />
 											<span className="font-medium text-sm lg:text-base">
 												{feature}
 											</span>

@@ -32,13 +32,13 @@ export default function FAQ() {
 	const [expandedFaqId, setExpandedFaqId] = useState<number>(0);
 
 	return (
-		<section className="py-24" id="faq">
+		<section className="py-24 bg-[#A8B4A2]/40" id="faq">
 			<div className="container">
 				<SectionHeading
 					title={
 						<h2 className="mb-4">
 							Frequently{" "}
-							<span className="text-primary relative">
+							<span className="text-theme relative">
 								Asked Questions
 								<img
 									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
@@ -90,20 +90,20 @@ function FaqCard({
 	return (
 		<div
 			onClick={onClick}
-			className="w-full h-auto border rounded-lg p-3 pb-0 lg:pl-8 flex flex-col gap-4 overflow-hidden relative cursor-pointer transition-all duration-300 bg-accent"
+			className="w-full h-auto border rounded-lg p-3 pb-0 lg:pl-8 flex flex-col gap-4 overflow-hidden relative cursor-pointer transition-all duration-300 bg-[#F1EEE3]"
 		>
 			<div className="w-full flex items-center justify-between">
-				<h3 className="text-primary font-semibold text-base lg:text-2xl">
+				<h3 className="text-theme font-semibold text-base lg:text-2xl">
 					{question}
 				</h3>
 
 				{expandedFaqId === id ? (
 					<div className="min-w-max">
-						<ArrowUpRight className="text-primary" />
+						<ArrowUpRight className="text-theme" />
 					</div>
 				) : (
 					<div className="min-w-max">
-						<ArrowDownRight className="text-primary" />
+						<ArrowDownRight className="text-theme" />
 					</div>
 				)}
 			</div>
