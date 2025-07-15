@@ -31,7 +31,11 @@ export default function Header() {
 			<div className="container grid grid-cols-2 lg:grid-cols-4 gap-3 items-center">
 				<div className="flex items-center justify-start">
 					<Link to={"/"}>
-						<img src={Logo} alt="nuvía" className="max-w-[70%]" />
+						<img
+							src={Logo}
+							alt="nuvía"
+							className="max-w-[50%] lg:max-w-[70%]"
+						/>
 					</Link>
 				</div>
 
