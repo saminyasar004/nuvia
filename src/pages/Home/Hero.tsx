@@ -934,7 +934,7 @@ export default function Hero() {
 				</div>
 			</div>
 
-			<div className="container py-32 lg:pt-0 flex items-center justify-center">
+			<div className="container py-24 lg:pt-0 flex items-center justify-center mt-20 sm:mt-0">
 				<BlurFade delay={0.25 + 0.05} inView>
 					<img
 						src={HeroChatboxImg}
