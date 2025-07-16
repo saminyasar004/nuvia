@@ -42,6 +42,9 @@ export default {
 				_darkBlue: "#0f1e28",
 				_woodGreen: "#3BA3A4",
 			},
+			backgroundImage: {
+				"pattern-banner": "url('./assets/images/hero-bg-pattern.png')",
+			},
 			keyframes: {
 				"accordion-down": {
 					from: {
