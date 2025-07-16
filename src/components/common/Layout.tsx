@@ -9,7 +9,7 @@ export default function Layout({ children }) {
 	useEffect(() => {
 		const hash = location.hash;
 		if (hash) {
-			const element = document.getElementById(hash.substring(1)); // Remove the '#' from hash
+			const element = document.getElementById(hash.substring(1));
 			if (element) {
 				element.scrollIntoView({ behavior: "smooth" });
 			}

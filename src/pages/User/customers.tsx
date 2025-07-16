@@ -10,6 +10,14 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 import { Phone, Search, Star } from "lucide-react";
 import WhatsappIcon from "@/assets/images/whatsapp.svg";
 import FacebookIcon from "@/assets/images/facebook.svg";
@@ -19,6 +27,7 @@ import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
 interface CustomerProps {
+	id: number;
 	name: string;
 	status: "Active" | "Inactive";
 	phone: string;
@@ -31,6 +40,7 @@ interface CustomerProps {
 
 const customers: CustomerProps[] = [
 	{
+		id: 1,
 		name: "John Smith",
 		status: "Active",
 		phone: "+60 12-345 6789",
@@ -41,6 +51,7 @@ const customers: CustomerProps[] = [
 		socialPlatform: "whatsapp",
 	},
 	{
+		id: 2,
 		name: "John Smith",
 		status: "Active",
 		phone: "+60 12-345 6789",
@@ -51,6 +62,7 @@ const customers: CustomerProps[] = [
 		socialPlatform: "whatsapp",
 	},
 	{
+		id: 3,
 		name: "John Smith",
 		status: "Active",
 		phone: "+60 12-345 6789",
@@ -61,6 +73,7 @@ const customers: CustomerProps[] = [
 		socialPlatform: "instagram",
 	},
 	{
+		id: 4,
 		name: "John Smith",
 		status: "Active",
 		phone: "+60 12-345 6789",
@@ -71,6 +84,7 @@ const customers: CustomerProps[] = [
 		socialPlatform: "whatsapp",
 	},
 	{
+		id: 5,
 		name: "John Smith",
 		status: "Active",
 		phone: "+60 12-345 6789",
@@ -81,6 +95,7 @@ const customers: CustomerProps[] = [
 		socialPlatform: "facebook",
 	},
 	{
+		id: 6,
 		name: "John Smith",
 		status: "Active",
 		phone: "+60 12-345 6789",
@@ -159,6 +174,10 @@ export default function Customers() {
 }
 
 const CustomerCard = ({ customer }: { customer: CustomerProps }) => {
+	const [openCustomerDetailsId, setOpenCustomerDetailsId] = useState<
+		number | null
+	>(null);
+
 	return (
 		<div className="bg-accent rounded-lg border p-6 px-8 flex flex-col gap-6 relative">
 			<div className="flex items-center justify-end">
@@ -230,8 +249,46 @@ const CustomerCard = ({ customer }: { customer: CustomerProps }) => {
 				</div>
 			</div>
 			<div className="w-full flex items-center justify-center *:w-full">
-				<Button>View Details</Button>
+				<Button onClick={() => setOpenCustomerDetailsId(customer.id)}>
+					View Details
+				</Button>
+
+				<CustomerDetailsModal
+					customer={customer}
+					openCustomerDetailsId={openCustomerDetailsId}
+					setOpenCustomerDetailsId={setOpenCustomerDetailsId}
+				/>
 			</div>
 		</div>
+	);
+};
+
+const CustomerDetailsModal = ({
+	customer,
+	openCustomerDetailsId,
+	setOpenCustomerDetailsId,
+}: {
+	customer: CustomerProps;
+	openCustomerDetailsId: number | null;
+	setOpenCustomerDetailsId: React.Dispatch<
+		React.SetStateAction<number | null>
+	>;
+}) => {
+	return (
+		<Dialog
+			open={openCustomerDetailsId === customer.id}
+			onOpenChange={() => setOpenCustomerDetailsId(customer.id)}
+		>
+			<DialogContent>
+				<DialogHeader>
+					<DialogTitle>Are you absolutely sure?</DialogTitle>
+					<DialogDescription>
+						This action cannot be undone. This will permanently
+						delete your account and remove your data from our
+						servers.
+					</DialogDescription>
+				</DialogHeader>
+			</DialogContent>
+		</Dialog>
 	);
 };

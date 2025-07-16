@@ -2,9 +2,9 @@ import React from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Conversation } from "./Conversations";
+import { Conversation } from "./conversations";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import LogoBlack from "@/assets/images/logo.svg";
+import LogoWhite from "@/assets/images/logo-white.svg";
 import WhatsappIcon from "@/assets/images/whatsapp.svg";
 import FacebookIcon from "@/assets/images/facebook.svg";
 import InstagramIcon from "@/assets/images/instagram.svg";
@@ -83,18 +83,18 @@ export const ConversationList: React.FC<ConversationListProps> = ({
 	};
 
 	return (
-		<div className="w-80 relative bg-accent flex flex-col h-[85vh] border-r border-primary rounded-lg">
+		<div className="w-80 relative bg-theme/50 flex flex-col h-[85vh] border-r border-theme border-dashed rounded-lg">
 			{/* Header */}
 			<div className="p-4 sticky">
 				<div className="flex flex-col items-center gap-3 mb-4">
 					<div className="w-full flex items-center justify-center">
 						<img
-							src={LogoBlack}
+							src={LogoWhite}
 							alt="nuvía"
 							className="max-w-[70%]"
 						/>
 					</div>
-					<h1 className="font-bold text-foreground text-xl">
+					<h1 className="font-bold text-theme text-xl">
 						Conversations
 					</h1>
 				</div>
@@ -119,7 +119,7 @@ export const ConversationList: React.FC<ConversationListProps> = ({
 						onClick={() => onSelectConversation(conversation)}
 						className={`relative p-4 cursor-pointer transition-all duration-200 hover:bg-background ${
 							selectedConversation.id === conversation.id
-								? "bg-background before:contents-[''] before:absolute before:w-3 before:rounded-lg before:h-full before:-left-1 before:top-0 before:bg-primary"
+								? "bg-background before:contents-[''] before:absolute before:w-3 before:rounded-lg before:h-full before:-left-1 before:top-0 before:bg-theme"
 								: ""
 						}`}
 					>
@@ -139,15 +139,15 @@ export const ConversationList: React.FC<ConversationListProps> = ({
 
 							<div className="flex-1 min-w-0">
 								<div className="flex items-center justify-between mb-1">
-									<h3 className="font-semibold text-gray-800 text-sm">
+									<h3 className="font-semibold text-foreground text-sm">
 										{conversation.name}
 									</h3>
-									<span className="text-xs text-gray-500">
+									<span className="text-xs text-foreground">
 										{conversation.timestamp}
 									</span>
 								</div>
 
-								<p className="text-sm text-gray-600 truncate mb-2">
+								<p className="text-sm text-foreground truncate mb-2">
 									{conversation.lastMessage}
 								</p>
 

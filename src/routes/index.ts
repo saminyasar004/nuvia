@@ -1,13 +1,16 @@
 import UserDashboardLayout from "@/components/common/UserDashboardLayout";
 import Layout from "@/components/common/Layout";
-import Login from "@/pages/auth/Login";
-import Home from "@/pages/Home/Index";
-import PrivacyPolicy from "@/pages/Legal/PrivacyPolicy";
-import TermsAndCondition from "@/pages/Legal/TermsAndCondition";
-import Dashboard from "@/pages/User/Dashboard";
-import Conversations from "@/pages/User/Conversations";
-import Appointments from "@/pages/User/Appointments";
-import Customers from "@/pages/User/Customers";
+import Login from "@/pages/auth/login";
+import Home from "@/pages/Home";
+import PrivacyPolicy from "@/pages/Legal/privacy-policy";
+import TermsAndCondition from "@/pages/Legal/terms-and-condition";
+import Dashboard from "@/pages/User/dashboard";
+import Conversations from "@/pages/User/conversations";
+import Appointments from "@/pages/User/appointments";
+import Customers from "@/pages/User/customers";
+import Signup from "@/pages/auth/signup";
+import ForgotPassword from "@/pages/auth/forgot-password";
+import VerifyOtp from "@/pages/auth/verify-otp";
 
 export interface Route {
 	path: string;
@@ -34,6 +37,18 @@ export const routes = [
 	{
 		path: "/login",
 		element: Login,
+	},
+	{
+		path: "/signup",
+		element: Signup,
+	},
+	{
+		path: "/forgot-password",
+		element: ForgotPassword,
+	},
+	{
+		path: "/verify-otp",
+		element: VerifyOtp,
 	},
 	{
 		path: "/user/dashboard",

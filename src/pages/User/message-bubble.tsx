@@ -1,5 +1,5 @@
 import React from "react";
-import { Message } from "./Conversations";
+import { Message } from "./conversations";
 
 interface MessageBubbleProps {
 	message: Message;
@@ -15,8 +15,8 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
 			<div
 				className={`max-w-xs lg:max-w-md px-4 py-3 font-semibold rounded-2xl shadow-sm ${
 					isUser
-						? "bg-primary text-white rounded-bl-sm"
-						: "bg-accent border border-[#F5C339] text-primary rounded-br-sm"
+						? "bg-primary text-white rounded-br-sm"
+						: "bg-theme  text-white rounded-bl-sm"
 				}`}
 			>
 				<p className="text-sm leading-relaxed">{message.text}</p>

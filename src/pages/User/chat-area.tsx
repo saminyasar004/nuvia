@@ -1,8 +1,8 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Conversation, Message } from "./Conversations";
-import { MessageBubble } from "./MessageBubble";
+import { Conversation, Message } from "./conversations";
+import { MessageBubble } from "./message-bubble";
 
 interface ChatAreaProps {
 	conversation: Conversation;
@@ -66,7 +66,7 @@ export const ChatArea: React.FC<ChatAreaProps> = ({ conversation }) => {
 	return (
 		<div className="flex-1 flex flex-col h-[85vh]">
 			{/* Header */}
-			<div className="border-b border-primary p-4 pb-0 shadow-sm">
+			<div className="border-b border-theme border-dashed p-4 pb-0 shadow-sm">
 				<div className="flex items-center justify-between">
 					<div className="flex items-center gap-3">
 						<div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">

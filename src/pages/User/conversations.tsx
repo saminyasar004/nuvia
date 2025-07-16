@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ConversationList } from "./ConversationList";
-import { ChatArea } from "./ChatArea";
+import { ConversationList } from "./conversation-list";
+import { ChatArea } from "./chat-area";
 import DashboardHeader from "@/components/common/DashboardHeader";
 import AvatarImg from "@/assets/images/avatar.png";
 
@@ -342,7 +342,7 @@ const Conversations = () => {
 			/>
 
 			<div className="w-full p-6">
-				<div className="w-full flex border border-primary rounded-lg">
+				<div className="w-full flex border border-theme border-dashed rounded-lg">
 					<ConversationList
 						conversations={filteredConversations}
 						selectedConversation={selectedConversation}
