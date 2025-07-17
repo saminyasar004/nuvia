@@ -1,5 +1,5 @@
 import AvatarImg from "@/assets/images/avatar.png";
-import DashboardHeader from "@/components/common/DashboardHeader";
+import DashboardHeader from "@/components/common/dashboard-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +23,7 @@ import {
 import { CalendarDay } from "react-day-picker";
 import { useState } from "react";
 
-interface AppointmentProps {
+export interface AppointmentProps {
 	name: string;
 	status: "Confirm" | "Pending" | "Canceled" | "Completed";
 	date: string;
@@ -34,7 +34,7 @@ interface AppointmentProps {
 	service: string;
 }
 
-const appointments: AppointmentProps[] = [
+export const appointments: AppointmentProps[] = [
 	{
 		name: "James Lim",
 		status: "Confirm",
@@ -187,7 +187,7 @@ const AppointmentCard = ({
 	appointment: AppointmentProps;
 }) => {
 	return (
-		<div className="bg-accent border rounded-lg p-4 flex gap-3">
+		<div className="bg-background border rounded-lg p-4 flex gap-3">
 			<div className="w-16 h-16 flex items-center justify-center rounded-full overflow-hidden border border-primary">
 				<img src={AvatarImg} alt="avatar" className="max-w-full" />
 			</div>

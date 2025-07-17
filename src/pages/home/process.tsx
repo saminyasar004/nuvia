@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/common/SectionHeading";
+import SectionHeading from "@/components/common/section-heading";
 import AtomicBoomImg from "@/assets/images/atomic-boom.svg";
 import VerticalPathImg from "@/assets/images/vertical-path.svg";
 import { Card, CardContent } from "@/components/ui/card";

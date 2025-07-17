@@ -1,7 +1,7 @@
 import FacebookIcon from "@/assets/images/facebook.svg";
 import InstagramIcon from "@/assets/images/instagram.svg";
 import WhatsappIcon from "@/assets/images/whatsapp.svg";
-import DashboardHeader from "@/components/common/DashboardHeader";
+import DashboardHeader from "@/components/common/dashboard-header";
 import {
 	CalendarDays,
 	DollarSign,
@@ -147,7 +147,7 @@ export default function Dashboard() {
 						{Array.from({ length: 6 }).map((_, index) => (
 							<div
 								key={index}
-								className="w-full p-4 rounded-lg border border-primary/10 flex items-start justify-between transition-all duration-150 group hover:bg-primary hover:text-white"
+								className="w-full p-4 rounded-lg border border-primary/10 flex items-start justify-between transition-all duration-150 group hover:bg-secondary"
 							>
 								<div className="flex gap-3">
 									<div className="w-14 h-14 flex items-center justify-center overflow-hidden relative">
@@ -168,14 +168,14 @@ export default function Dashboard() {
 										<h5 className="font-semibold">
 											Pappu Don
 										</h5>
-										<p className="text-xs font-medium text-gray-500 group-hover:text-white transition-all duration-150">
+										<p className="text-xs font-medium text-gray-500 transition-all duration-150">
 											Hi! Can I book a facial for
 											tomorrow?
 										</p>
 									</div>
 								</div>
 								<div className="flex flex-col gap-2 items-end">
-									<span className="text-xs text-gray-500 group-hover:text-white transition-all duration-150">
+									<span className="text-xs text-gray-500 transition-all duration-150">
 										2 min ago
 									</span>
 									<Badge variant={"success"}>Active</Badge>

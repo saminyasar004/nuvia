@@ -1,4 +1,4 @@
-import VideoPlayer from "@/components/common/VideoPlayer";
+import VideoPlayer from "@/components/common/video-player";
 import VideoSrc from "@/assets/videos/promotional-video.mp4";
 
 export default function PromotionalVideo() {

@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/common/SectionHeading";
+import SectionHeading from "@/components/common/section-heading";
 import FAQBanner from "@/assets/images/faq-banner.svg";
 import HeadingUnderline from "@/assets/images/heading-underline.svg";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";

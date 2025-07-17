@@ -1,4 +1,4 @@
-import Hero from "@/pages/Home/hero";
+import Hero from "@/pages/home/hero";
 import BrandPartners from "./brand-partners";
 import Feature from "./feature";
 import Process from "./process";

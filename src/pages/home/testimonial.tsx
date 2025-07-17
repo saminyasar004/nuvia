@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/common/SectionHeading";
+import SectionHeading from "@/components/common/section-heading";
 import Marquee from "@/components/magicui/marquee";
 import HeadingUnderline from "@/assets/images/heading-underline.svg";
 

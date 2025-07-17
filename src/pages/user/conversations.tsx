@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ConversationList } from "./conversation-list";
 import { ChatArea } from "./chat-area";
-import DashboardHeader from "@/components/common/DashboardHeader";
+import DashboardHeader from "@/components/common/dashboard-header";
 import AvatarImg from "@/assets/images/avatar.png";
 
 export interface Message {

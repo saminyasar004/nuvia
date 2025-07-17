@@ -1,6 +1,6 @@
 import LeafLeftImg from "@/assets/images/leaf-left.svg";
 import LeafRightImg from "@/assets/images/leaf-right.svg";
-import SectionHeading from "@/components/common/SectionHeading";
+import SectionHeading from "@/components/common/section-heading";
 import { Button } from "@/components/ui/button";
 import HeadingUnderline from "@/assets/images/heading-underline.svg";
 import {

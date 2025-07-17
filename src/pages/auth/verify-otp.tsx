@@ -148,7 +148,9 @@ export default function VerifyOtp() {
 					</div>
 
 					<div className="form-group">
-						<Button className="w-full">Confirm</Button>
+						<Link to={"/on-boarding"}>
+							<Button className="w-full">Confirm</Button>
+						</Link>
 					</div>
 
 					<div className="form-group text-center">

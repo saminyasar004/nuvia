@@ -6,6 +6,9 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { routes } from "./routes";
+import { MantineProvider } from "@mantine/core";
+
+import "@mantine/core/styles.css";
 
 const queryClient = new QueryClient();
 
@@ -17,30 +20,32 @@ const App = () => {
 	}, []);
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<TooltipProvider>
-				<Sonner />
-				<BrowserRouter>
-					<Routes>
-						{routes.map((route, index) => (
-							<Route
-								key={index}
-								path={route.path}
-								element={
-									route.layout ? (
-										<route.layout>
+		<MantineProvider>
+			<QueryClientProvider client={queryClient}>
+				<TooltipProvider>
+					<Sonner />
+					<BrowserRouter>
+						<Routes>
+							{routes.map((route, index) => (
+								<Route
+									key={index}
+									path={route.path}
+									element={
+										route.layout ? (
+											<route.layout>
+												<route.element />
+											</route.layout>
+										) : (
 											<route.element />
-										</route.layout>
-									) : (
-										<route.element />
-									)
-								}
-							/>
-						))}
-					</Routes>
-				</BrowserRouter>
-			</TooltipProvider>
-		</QueryClientProvider>
+										)
+									}
+								/>
+							))}
+						</Routes>
+					</BrowserRouter>
+				</TooltipProvider>
+			</QueryClientProvider>
+		</MantineProvider>
 	);
 };
 

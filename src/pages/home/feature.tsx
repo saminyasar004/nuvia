@@ -6,7 +6,7 @@ import MultiPlatformImg from "@/assets/images/multi-platform.svg";
 import StatisticsImg from "@/assets/images/statistics.svg";
 import LeafRightImg from "@/assets/images/leaf-right.svg";
 import HeadingUnderline from "@/assets/images/heading-underline.svg";
-import SectionHeading from "@/components/common/SectionHeading";
+import SectionHeading from "@/components/common/section-heading";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
