@@ -130,7 +130,9 @@ export default function Signup() {
 						</div>
 
 						<div className="form-group">
-							<Button className="w-full">Sign Up</Button>
+							<Link to={"/on-boarding"}>
+								<Button className="w-full">Sign Up</Button>
+							</Link>
 						</div>
 
 						<div className="form-group text-center">

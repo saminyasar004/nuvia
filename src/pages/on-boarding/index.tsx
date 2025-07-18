@@ -1,10 +1,13 @@
 import FacebookImg from "@/assets/images/facebook.svg";
 import WhatsappImg from "@/assets/images/whatsapp.svg";
 import InstagramImg from "@/assets/images/instagram.svg";
+import LogoIcon from "@/assets/images/favicon.svg";
+import QrImg from "@/assets/images/qr.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Card } from "@/components/ui/card";
 import {
 	Dialog,
 	DialogClose,
@@ -16,13 +19,29 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableFooter,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/components/ui/table";
+import {
 	ArrowLeft,
 	ArrowRight,
 	BotMessageSquare,
 	BriefcaseBusiness,
+	Cable,
+	Check,
 	CheckCircle,
+	Eye,
+	EyeOff,
+	Menu,
 	MonitorCheck,
 	PlusIcon,
+	Settings,
 	Users,
 } from "lucide-react";
 import { serviceHoursDetails } from "../user/business-profile";
@@ -39,11 +58,28 @@ import {
 } from "@/components/ui/select";
 import { Stepper } from "@mantine/core";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+interface TeamMemberProps {
+	member: string;
+	email: string;
+	number: string;
+	userType: string;
+}
+
+const teamMembers = [
+	{
+		member: "Pappu roy (you)",
+		email: "Papppyro6393@gmail.com",
+		number: "01405366393",
+		userType: "Owner",
+	},
+];
 
 export default function Onboarding() {
-	const [active, setActive] = useState(1);
+	const [active, setActive] = useState(0);
 	const nextStep = () =>
-		setActive((current) => (current < 3 ? current + 1 : current));
+		setActive((current) => (current < 4 ? current + 1 : current));
 	const prevStep = () =>
 		setActive((current) => (current > 0 ? current - 1 : current));
 
@@ -86,22 +122,25 @@ export default function Onboarding() {
 							icon={<Users size={18} />}
 							label="Team Members"
 						>
-							Step 3 content: Verify email
+							<TeamMembers
+								previousStep={prevStep}
+								nextStep={nextStep}
+							/>
 						</Stepper.Step>
 						<Stepper.Step
 							icon={<BotMessageSquare size={18} />}
 							label="AI Configuration"
 						>
-							Step 4 content: Verify email
+							<AIConfiguration
+								previousStep={prevStep}
+								nextStep={nextStep}
+							/>
 						</Stepper.Step>
-						<Stepper.Step
-							label="Go Live"
-							icon={<CheckCircle size={18} />}
+						<Stepper.Completed
+						// label="Go Live"
+						// icon={<CheckCircle size={18} />}
 						>
-							Step 5 content: Get full access
-						</Stepper.Step>
-						<Stepper.Completed>
-							Completed, click back button to get to previous step
+							<AllSet previousStep={prevStep} />
 						</Stepper.Completed>
 					</Stepper>
 				</div>
@@ -561,10 +600,13 @@ const PlatformSetup = ({
 	previousStep: () => void;
 	nextStep: () => void;
 }) => {
+	const [isWhatsappQrConnectDialogOpen, setIsWhatsappQrConnectDialogOpen] =
+		useState(false);
+
 	return (
 		<>
 			<div className="w-full grid grid-cols-3 gap-6 py-8">
-				<div className="w-full h-full p-8 py-16 rounded-lg border border-theme bg-background flex flex-col gap-3 items-center">
+				<div className="w-full h-full p-8 py-16 rounded-lg border border-theme bg-background flex flex-col gap-3 items-center hover:bg-secondary transition-all duration-300 cursor-pointer">
 					<img
 						src={FacebookImg}
 						alt="Facebook"
@@ -579,23 +621,36 @@ const PlatformSetup = ({
 					</p>
 				</div>
 
-				<div className="w-full h-full p-8 py-16 rounded-lg border border-theme bg-background flex flex-col gap-3 items-center">
-					<img
-						src={WhatsappImg}
-						alt="WhatsApp"
-						className="w-24 h-24"
-					/>
+				<Dialog>
+					<DialogTrigger asChild>
+						<div
+							onClick={() =>
+								setIsWhatsappQrConnectDialogOpen(true)
+							}
+							className="w-full h-full p-8 py-16 rounded-lg border border-theme bg-background flex flex-col gap-3 items-center hover:bg-secondary transition-all duration-300 cursor-pointer"
+						>
+							<img
+								src={WhatsappImg}
+								alt="WhatsApp"
+								className="w-24 h-24"
+							/>
 
-					<h3 className="font-semibold text-xl text-theme">
-						WhatsApp
-					</h3>
-					<p className="text-sm">
-						Connect your WhatsApp Business account for customer
-						messaging
-					</p>
-				</div>
+							<h3 className="font-semibold text-xl text-theme">
+								WhatsApp
+							</h3>
+							<p className="text-sm">
+								Connect your WhatsApp Business account for
+								customer messaging
+							</p>
+						</div>
+					</DialogTrigger>
 
-				<div className="w-full h-full p-8 py-16 rounded-lg border border-theme bg-background flex flex-col gap-3 items-center">
+					<DialogContent className="sm:max-w-6xl bg-background">
+						<WhatsAppConnect />
+					</DialogContent>
+				</Dialog>
+
+				<div className="w-full h-full p-8 py-16 rounded-lg border border-theme bg-background flex flex-col gap-3 items-center hover:bg-secondary transition-all duration-300 cursor-pointer">
 					<img
 						src={InstagramImg}
 						alt="Instagram"
@@ -621,6 +676,657 @@ const PlatformSetup = ({
 					Continue
 					<ArrowRight size={12} />
 				</Button>
+			</div>
+		</>
+	);
+};
+
+const WhatsAppConnect = () => {
+	const [type, setType] = useState<"qr" | "phone">("qr");
+	const [selectedCountry, setSelectedCountry] = useState("BD");
+	const [phoneNumber, setPhoneNumber] = useState("");
+
+	const countries = [
+		{ code: "BD", name: "Bangladesh", dialCode: "+880" },
+		{ code: "US", name: "United States", dialCode: "+1" },
+		{ code: "GB", name: "United Kingdom", dialCode: "+44" },
+		{ code: "IN", name: "India", dialCode: "+91" },
+		{ code: "AU", name: "Australia", dialCode: "+61" },
+		{ code: "CA", name: "Canada", dialCode: "+1" },
+		{ code: "DE", name: "Germany", dialCode: "+49" },
+		{ code: "FR", name: "France", dialCode: "+33" },
+		{ code: "JP", name: "Japan", dialCode: "+81" },
+		{ code: "CN", name: "China", dialCode: "+86" },
+	];
+
+	const selectedCountryData = countries.find(
+		(c) => c.code === selectedCountry
+	);
+
+	if (type === "qr") {
+		return (
+			<div className="w-full flex items-center justify-center p-4">
+				<div className="p-8 md:p-12">
+					{/* Header with logos */}
+					<div className="flex items-center gap-3 mb-8">
+						<div className="flex items-center gap-1">
+							<div className="w-10 h-10 flex items-center justify-center">
+								<img src={WhatsappImg} alt="Whatsapp" />
+							</div>
+							<span className="text-sm font-medium">
+								WhatsApp
+							</span>
+						</div>
+						<div className="flex items-center gap-2">
+							<div className="w-8 h-8 flex items-center justify-center">
+								<img
+									src={LogoIcon}
+									alt="Nuvía"
+									className="max-w-full"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+						<div className="space-y-4">
+							<div className="flex flex-col gap-4">
+								<h1 className="text-3xl md:text-4xl font-bold text-foreground">
+									Connect WhatsApp to Nuvía
+								</h1>
+
+								<p className="text-xl md:text-2xl text-foreground mb-8">
+									Scan the QR code
+								</p>
+							</div>
+							<div className="space-y-4">
+								<p className="text-foreground font-medium text-lg">
+									Open WhatsApp on your Phone
+								</p>
+
+								<div className="flex items-start gap-3">
+									<p className="text-foreground">
+										Tap Menu{" "}
+										<Menu className="inline w-4 h-4 mx-1" />{" "}
+										or Settings{" "}
+										<Settings className="inline w-4 h-4 mx-1" />{" "}
+										and Select Linked Devices
+									</p>
+								</div>
+
+								<p className="text-foreground">
+									Tap on Link a Device
+								</p>
+
+								<p className="text-foreground">
+									Point your phone to this screen to capture
+									the QR code
+								</p>
+							</div>
+						</div>
+
+						{/* QR Code */}
+						<div className="flex justify-center">
+							<div className="p-6 rounded-2xl bg-white">
+								<img
+									src={QrImg}
+									alt="WhatsApp QR Code"
+									className="w-64 h-64 md:w-80 md:h-80"
+								/>
+							</div>
+						</div>
+					</div>
+
+					{/* Bottom link */}
+					<div className="mt-12 text-center">
+						<Button
+							variant="link"
+							onClick={() => setType("phone")}
+							className="text-theme font-medium text-base"
+						>
+							LINK WITH PHONE NUMBER
+						</Button>
+					</div>
+				</div>
+			</div>
+		);
+	} else {
+		return (
+			<div className="flex items-center justify-center p-4">
+				<div className="p-8 md:p-12">
+					<div className="flex items-center justify-center gap-3 mb-8">
+						<div className="flex items-center justify-center gap-3">
+							<div className="w-8 h-8 bg-whatsapp rounded-full flex items-center justify-center">
+								<img
+									src={WhatsappImg}
+									alt="Whatsapp"
+									className="max-w-full"
+								/>
+							</div>
+							<Cable className="text-primary rotate-90 w-6 h-6" />
+							<div className="w-8 h-8 flex items-center justify-center">
+								<img
+									src={LogoIcon}
+									alt="Nuvía"
+									className="max-w-full"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
+						Connect WhatsApp to Nuvía
+					</h1>
+
+					<p className="text-lg text-foreground mb-8 text-center">
+						Select a country and enter Business phone number.
+					</p>
+
+					<div className="max-w-md mx-auto space-y-6">
+						<div className="flex gap-2">
+							<Select
+								value={selectedCountry}
+								onValueChange={setSelectedCountry}
+							>
+								<SelectTrigger className="w-32 bg-secondary/50 border-border/50">
+									<SelectValue />
+								</SelectTrigger>
+								<SelectContent>
+									{countries.map((country) => (
+										<SelectItem
+											key={country.code}
+											value={country.code}
+										>
+											{country.code}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
+
+							<div className="flex-1 flex">
+								<div className="bg-secondary/50 border border-border/50 rounded-l-md px-3 flex items-center text-sm text-muted-foreground border-r-0">
+									{selectedCountryData?.dialCode}
+								</div>
+								<Input
+									type="tel"
+									value={phoneNumber}
+									onChange={(e) =>
+										setPhoneNumber(e.target.value)
+									}
+									placeholder="Enter phone number"
+									className="rounded-l-none bg-secondary/50 border-border/50 focus:border-ease"
+								/>
+							</div>
+						</div>
+
+						<div className="w-full flex items-center justify-center">
+							<Button>Next</Button>
+						</div>
+					</div>
+
+					{/* Bottom link */}
+					<div className="mt-12 text-center">
+						<Button
+							variant="link"
+							onClick={() => setType("qr")}
+							className="text-theme font-medium text-base"
+						>
+							LINK WITH QR CODE
+						</Button>
+					</div>
+				</div>
+			</div>
+		);
+	}
+};
+
+const TeamMembers = ({
+	previousStep,
+	nextStep,
+}: {
+	previousStep: () => void;
+	nextStep: () => void;
+}) => {
+	return (
+		<>
+			<div className="w-full border border-theme rounded-lg p-8 flex flex-col gap-4">
+				<h3 className="font-semibold text-lg">Team Members</h3>
+
+				<Table className="border-collapse rounded-lg">
+					<TableHeader>
+						<TableRow className="bg-primary *:text-white rounded-lg hover:text-white hover:bg-primary">
+							<TableHead>Members</TableHead>
+							<TableHead>Email</TableHead>
+							<TableHead>Number</TableHead>
+							<TableHead>User Type</TableHead>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						{teamMembers.map((member) => (
+							<TableRow
+								key={member.email}
+								className="bg-secondary"
+							>
+								<TableCell className="font-medium">
+									{member.member}
+								</TableCell>
+								<TableCell>{member.email}</TableCell>
+								<TableCell>{member.number}</TableCell>
+								<TableCell>{member.userType}</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</div>
+
+			<Dialog>
+				<DialogTrigger asChild>
+					<div className="flex items-start py-8">
+						<Button>
+							Add Member
+							<PlusIcon size={12} />
+						</Button>
+					</div>
+				</DialogTrigger>
+				<DialogContent className="bg-background sm:max-w-4xl">
+					<AddTeamMemberCard />
+				</DialogContent>
+			</Dialog>
+
+			<div className="w-full flex items-center justify-between py-8">
+				<Button variant="secondary" onClick={previousStep}>
+					<ArrowLeft size={12} />
+					Previous
+				</Button>
+				<Button onClick={nextStep}>
+					Continue
+					<ArrowRight size={12} />
+				</Button>
+			</div>
+		</>
+	);
+};
+
+const AddTeamMemberCard = () => {
+	const [showPassword, setShowPassword] = useState(false);
+	const [formData, setFormData] = useState({
+		fullName: "",
+		role: "",
+		email: "",
+		password: "",
+	});
+
+	const handleInputChange = (field: string, value: string) => {
+		setFormData((prev) => ({ ...prev, [field]: value }));
+	};
+
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		console.log("Form submitted:", formData);
+	};
+
+	return (
+		<div className="w-full p-8 bg-background">
+			<div className="mb-8">
+				<h1 className="text-3xl font-bold text-foreground mb-2">
+					Create Member
+				</h1>
+				<p className="text-muted-foreground">
+					Create a member manually and share credentials with your
+					team members.
+				</p>
+			</div>
+
+			<form onSubmit={handleSubmit} className="space-y-6">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div className="space-y-2">
+						<Label
+							htmlFor="fullName"
+							className="text-sm font-medium text-foreground"
+						>
+							Full Name
+						</Label>
+						<Input
+							id="fullName"
+							type="text"
+							placeholder="Enter name"
+							value={formData.fullName}
+							onChange={(e) =>
+								handleInputChange("fullName", e.target.value)
+							}
+						/>
+					</div>
+
+					<div className="space-y-2">
+						<Label
+							htmlFor="role"
+							className="text-sm font-medium text-foreground"
+						>
+							Role
+						</Label>
+						<Select
+							value={formData.role}
+							onValueChange={(value) =>
+								handleInputChange("role", value)
+							}
+						>
+							<SelectTrigger className="h-12 bg-input/20 border-input/40 focus:border-primary">
+								<SelectValue placeholder="Agent" />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectItem value="agent">Agent</SelectItem>
+								<SelectItem value="admin">Admin</SelectItem>
+								<SelectItem value="viewer">Viewer</SelectItem>
+							</SelectContent>
+						</Select>
+					</div>
+				</div>
+
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div className="space-y-2">
+						<Label
+							htmlFor="email"
+							className="text-sm font-medium text-foreground"
+						>
+							Email
+						</Label>
+						<Input
+							id="email"
+							type="email"
+							placeholder="Enter email"
+							value={formData.email}
+							onChange={(e) =>
+								handleInputChange("email", e.target.value)
+							}
+						/>
+					</div>
+
+					<div className="space-y-2">
+						<Label
+							htmlFor="password"
+							className="text-sm font-medium text-foreground"
+						>
+							Password
+						</Label>
+						<div className="relative">
+							<Input
+								id="password"
+								type={showPassword ? "text" : "password"}
+								placeholder="••••••••••••"
+								value={formData.password}
+								onChange={(e) =>
+									handleInputChange(
+										"password",
+										e.target.value
+									)
+								}
+							/>
+							<button
+								type="button"
+								onClick={() => setShowPassword(!showPassword)}
+								className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+							>
+								{showPassword ? (
+									<EyeOff className="h-5 w-5 text-primary" />
+								) : (
+									<Eye className="h-5 w-5 text-primary" />
+								)}
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div className="pt-4">
+					<Button type="submit">Add User</Button>
+				</div>
+			</form>
+		</div>
+	);
+};
+
+const AIConfiguration = ({
+	previousStep,
+	nextStep,
+}: {
+	previousStep: () => void;
+	nextStep: () => void;
+}) => {
+	const [formData, setFormData] = useState({
+		assistantName: "",
+		welcomeMessage: "",
+		voiceTone: "",
+		conversationTones: [] as string[],
+	});
+
+	const conversationToneOptions = [
+		"Calm And Reassuring",
+		"Professional And Sophisticated",
+		"Friendly And Conversational",
+		"Luxurious And Minimalist",
+		"Smart And Effective",
+	];
+
+	const handleInputChange = (field: string, value: string) => {
+		setFormData((prev) => ({ ...prev, [field]: value }));
+	};
+
+	const toggleConversationTone = (tone: string) => {
+		setFormData((prev) => ({
+			...prev,
+			conversationTones: prev.conversationTones.includes(tone)
+				? prev.conversationTones.filter((t) => t !== tone)
+				: [...prev.conversationTones, tone],
+		}));
+	};
+
+	return (
+		<>
+			<div className="w-full p-8 bg-orange-50/30 rounded-2xl border border-orange-200/50">
+				<div className="space-y-6">
+					<h1 className="text-2xl font-semibold text-gray-900 mb-6">
+						AI Configuration
+					</h1>
+
+					<div className="space-y-6">
+						{/* Assistant Name */}
+						<div className="space-y-3">
+							<Label
+								htmlFor="assistantName"
+								className="text-base font-medium text-gray-900"
+							>
+								Assistant Name
+							</Label>
+							<Input
+								id="assistantName"
+								type="text"
+								placeholder="Assistant, or you business name"
+								value={formData.assistantName}
+								onChange={(e) =>
+									handleInputChange(
+										"assistantName",
+										e.target.value
+									)
+								}
+								className="h-14 bg-orange-50/50 border-orange-200 focus:border-orange-300 text-base placeholder:text-gray-500 rounded-lg"
+							/>
+						</div>
+
+						{/* Welcome Message */}
+						<div className="space-y-3">
+							<Label
+								htmlFor="welcomeMessage"
+								className="text-base font-medium text-gray-900"
+							>
+								Welcome message
+							</Label>
+							<Textarea
+								id="welcomeMessage"
+								placeholder="Describe your Business and services..."
+								value={formData.welcomeMessage}
+								onChange={(e) =>
+									handleInputChange(
+										"welcomeMessage",
+										e.target.value
+									)
+								}
+								className="min-h-[120px] bg-orange-50/50 border-orange-200 focus:border-orange-300 text-base placeholder:text-gray-500 rounded-lg resize-none"
+							/>
+						</div>
+
+						{/* AI Conversation Tone */}
+						<div className="space-y-4">
+							<Label className="text-base font-medium text-gray-900">
+								AI Conversation Tone
+							</Label>
+
+							{/* Voice Tone Dropdown */}
+							<Select
+								value={formData.voiceTone}
+								onValueChange={(value) =>
+									handleInputChange("voiceTone", value)
+								}
+							>
+								<SelectTrigger className="h-14 bg-orange-50/50 border-orange-200 focus:border-orange-300 text-base rounded-lg">
+									<SelectValue placeholder="Select Voice Tone" />
+								</SelectTrigger>
+								<SelectContent className="bg-white border-orange-200 rounded-lg">
+									{conversationToneOptions.map((tone) => (
+										<SelectItem
+											key={tone}
+											value={tone
+												.toLowerCase()
+												.replace(/\s+/g, "-")}
+											className="text-base"
+										>
+											{tone}
+										</SelectItem>
+									))}
+								</SelectContent>
+							</Select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="w-full flex items-center justify-between py-8">
+				<Button variant="secondary" onClick={previousStep}>
+					<ArrowLeft size={12} />
+					Previous
+				</Button>
+				<Button onClick={nextStep}>
+					Continue
+					<ArrowRight size={12} />
+				</Button>
+			</div>
+		</>
+	);
+};
+
+const AllSet = ({ previousStep }: { previousStep: () => void }) => {
+	return (
+		<>
+			<div className="p-4 flex items-center justify-center bg-background">
+				<div className="w-full p-1 rounded-2xl">
+					<div className="rounded-xl p-8">
+						{/* Logo Section */}
+						<div className="flex flex-col items-center justify-center text-center mb-4">
+							<div className="flex items-center justify-center w-20 h-20">
+								<img
+									src={LogoIcon}
+									alt="nuvía"
+									className="max-w-full"
+								/>
+							</div>
+						</div>
+
+						{/* Main Heading */}
+						<div className="text-center mb-8">
+							<h1 className="text-3xl font-bold text-gray-900 mb-4">
+								You're All Set!
+							</h1>
+							<p className="text-gray-600 text-sm leading-relaxed">
+								Your AI assistant is ready to handle customer
+								conversations across your platforms
+							</p>
+						</div>
+
+						{/* Status Items */}
+						<div className="space-y-4">
+							{/* Business Profile Created */}
+							<div className="bg-secondary border rounded-xl p-4 flex items-start gap-4">
+								<div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+									<Check className="w-5 h-5 text-white" />
+								</div>
+								<div>
+									<h3 className="font-semibold text-primary mb-1">
+										Business Profile Created
+									</h3>
+									<p className="text-foreground text-sm">
+										is ready for customers
+									</p>
+								</div>
+							</div>
+
+							{/* Platforms Connected */}
+							<div className="bg-secondary border rounded-xl p-4 flex items-start gap-4">
+								<div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+									<Check className="w-5 h-5 text-white" />
+								</div>
+								<div>
+									<h3 className="font-semibold text-primary mb-1">
+										Platforms Connected
+									</h3>
+									<p className="text-foreground text-sm">
+										1 messaging platform ready
+									</p>
+								</div>
+							</div>
+
+							{/* AI Assistant Active */}
+							<div className="bg-secondary border rounded-xl p-4 flex items-start gap-4">
+								<div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+									<Check className="w-5 h-5 text-white" />
+								</div>
+								<div>
+									<h3 className="font-semibold text-primary mb-1">
+										AI Assistant Active
+									</h3>
+									<p className="text-foreground text-sm">
+										Ready to handle customer inquiries 24/7
+									</p>
+								</div>
+							</div>
+
+							{/* Team Member */}
+							<div className="bg-secondary border rounded-xl p-4 flex items-start gap-4">
+								<div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+									<Check className="w-5 h-5 text-white" />
+								</div>
+								<div>
+									<h3 className="font-semibold text-primary mb-1">
+										Team member
+									</h3>
+									<p className="text-foreground text-sm">
+										5 members are ready to launch the
+										dashboard
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div className="w-full flex items-center justify-between py-8">
+				<Button variant="secondary" onClick={previousStep}>
+					<ArrowLeft size={12} />
+					Previous
+				</Button>
+				<Link to={"/user/dashboard"}>
+					<Button>
+						Go To Dashboard
+						<ArrowRight size={12} />
+					</Button>
+				</Link>
 			</div>
 		</>
 	);

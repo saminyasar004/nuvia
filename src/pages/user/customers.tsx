@@ -141,7 +141,7 @@ export default function Customers() {
 
 						<Select
 							value={filteredBy}
-							onValueChange={(e) => setFilteredBy(e)}
+							onValueChange={(e) => setFilteredBy(e as any)}
 						>
 							<SelectTrigger className="w-[150px]">
 								<SelectValue placeholder="" />

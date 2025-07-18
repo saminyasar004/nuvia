@@ -122,7 +122,7 @@ const dashboardData: DashboardItem[] = [
 	},
 ];
 
-export default function Dashboard() {
+export default function UserDashboard() {
 	return (
 		<section className="w-full">
 			{/* dashboard header */}

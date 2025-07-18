@@ -4,7 +4,7 @@ import Login from "@/pages/auth/login";
 import Home from "@/pages/home";
 import PrivacyPolicy from "@/pages/legal/privacy-policy";
 import TermsAndCondition from "@/pages/legal/terms-and-condition";
-import Dashboard from "@/pages/user/dashboard";
+import UserDashboard from "@/pages/user/dashboard";
 import Conversations from "@/pages/user/conversations";
 import Appointments from "@/pages/user/appointments";
 import Customers from "@/pages/user/customers";
@@ -15,6 +15,9 @@ import Settings from "@/pages/user/settings";
 import BusinessProfile from "@/pages/user/business-profile";
 import Subscriptions from "@/pages/user/subscriptions";
 import Onboarding from "@/pages/on-boarding";
+import AdminDashboard from "@/pages/admin/dashboard";
+import AdminDashboardLayout from "@/components/common/admin-dashboard-layout";
+import BusinessManagement from "@/pages/admin/business-management";
 
 export interface Route {
 	path: string;
@@ -61,7 +64,7 @@ export const routes = [
 	},
 	{
 		path: "/user/dashboard",
-		element: Dashboard,
+		element: UserDashboard,
 		layout: UserDashboardLayout,
 	},
 	{
@@ -93,5 +96,15 @@ export const routes = [
 		path: "/user/subscriptions",
 		element: Subscriptions,
 		layout: UserDashboardLayout,
+	},
+	{
+		path: "/admin/dashboard",
+		element: AdminDashboard,
+		layout: AdminDashboardLayout,
+	},
+	{
+		path: "/admin/management",
+		element: BusinessManagement,
+		layout: AdminDashboardLayout,
 	},
 ];
