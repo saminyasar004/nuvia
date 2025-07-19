@@ -51,6 +51,12 @@ interface Business {
 	conversationCount: number;
 	revenue: number;
 	avatar: string;
+	teamMembers: number;
+	totalCustomers: number;
+	customerRating: number;
+	totalBookings: number;
+	monthlyRevenue: number;
+	botStatus: "active" | "inactive";
 }
 
 const businesses: Business[] = [
@@ -66,6 +72,12 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 	{
 		id: "2",
@@ -79,6 +91,12 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 	{
 		id: "3",
@@ -92,6 +110,12 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 	{
 		id: "4",
@@ -105,6 +129,12 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 	{
 		id: "5",
@@ -118,6 +148,12 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 	{
 		id: "6",
@@ -131,6 +167,12 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 	{
 		id: "7",
@@ -144,6 +186,12 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 	{
 		id: "8",
@@ -157,115 +205,20 @@ const businesses: Business[] = [
 		conversationCount: 2000,
 		revenue: 200,
 		avatar: "/placeholder.svg?height=40&width=40",
+		teamMembers: 4,
+		totalCustomers: 1300,
+		customerRating: 4.5,
+		totalBookings: 500,
+		monthlyRevenue: 560,
+		botStatus: "active",
 	},
 ];
 
-interface BusinessRowProps {
-	business: Business;
-}
-
-function BusinessRow({ business }: BusinessRowProps) {
-	return (
-		<TableRow className="hover:bg-secondary">
-			{/* Business Column */}
-			<TableCell>
-				<div className="flex items-center gap-3">
-					<Avatar className="h-10 w-10">
-						<AvatarImage
-							src={AvatarImg}
-							alt="AvatarImg"
-							className="object-cover object-center border border-theme rounded-full"
-						/>
-						<AvatarFallback>
-							{business.name.charAt(0)}
-						</AvatarFallback>
-					</Avatar>
-					<div>
-						<div className="font-medium text-gray-900">
-							{business.name}
-						</div>
-						<div className="text-sm text-muted-foreground">
-							Joined {business.joinDate}
-						</div>
-					</div>
-				</div>
-			</TableCell>
-
-			{/* Owner Column */}
-			<TableCell>
-				<div>
-					<div className="font-medium text-gray-900">
-						{business.ownerName}
-					</div>
-					<div className="text-sm text-muted-foreground">
-						{business.ownerEmail}
-					</div>
-				</div>
-			</TableCell>
-
-			{/* Plan Column */}
-			<TableCell>
-				<Badge>{business.plan}</Badge>
-			</TableCell>
-
-			{/* Status Column */}
-			<TableCell>
-				{/* <StatusBadge status={business.status} /> */}
-				<Badge variant="secondary">{business.plan}</Badge>
-			</TableCell>
-
-			{/* Member Column */}
-			<TableCell>
-				<div className="flex items-center gap-2">
-					<Users className="h-4 w-4 text-muted-foreground" />
-					<span className="text-sm font-medium">
-						{business.memberCount}
-					</span>
-				</div>
-			</TableCell>
-
-			{/* Conversation Column */}
-			<TableCell>
-				<div className="flex items-center gap-2">
-					<MessageCircle className="h-4 w-4 text-muted-foreground" />
-					<span className="text-sm font-medium">
-						{business.conversationCount}
-					</span>
-				</div>
-			</TableCell>
-
-			{/* Revenue Column */}
-			<TableCell>
-				<div className="flex items-center gap-1">
-					<DollarSign className="h-4 w-4 text-orange-500" />
-					<span className="text-sm font-medium text-orange-500">
-						{business.revenue}
-					</span>
-				</div>
-			</TableCell>
-
-			{/* Actions Column */}
-			<TableCell className="flex items-end justify-end">
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" className="h-8 w-8 p-0">
-							<span className="sr-only">Open menu</span>
-							<MoreHorizontal className="h-4 w-4" />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end">
-						<DropdownMenuItem>View details</DropdownMenuItem>
-						<DropdownMenuItem className="text-rose-500">
-							Suspend account
-						</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
-			</TableCell>
-		</TableRow>
-	);
-}
-
 export default function BusinessManagement() {
+	const [openBusinessModalId, setOpenBusinessModalId] = useState<
+		string | null
+	>(null);
+
 	return (
 		<section className="w-full">
 			{/* dashboard header */}
@@ -316,10 +269,131 @@ export default function BusinessManagement() {
 							</TableHeader>
 							<TableBody>
 								{businesses.map((business) => (
-									<BusinessRow
-										key={business.id}
-										business={business}
-									/>
+									<TableRow className="hover:bg-secondary">
+										{/* Business Column */}
+										<TableCell>
+											<div className="flex items-center gap-3">
+												<Avatar className="h-10 w-10">
+													<AvatarImage
+														src={AvatarImg}
+														alt="AvatarImg"
+														className="object-cover object-center border border-theme rounded-full"
+													/>
+													<AvatarFallback>
+														{business.name.charAt(
+															0
+														)}
+													</AvatarFallback>
+												</Avatar>
+												<div>
+													<div className="font-medium text-gray-900">
+														{business.name}
+													</div>
+													<div className="text-sm text-muted-foreground">
+														Joined{" "}
+														{business.joinDate}
+													</div>
+												</div>
+											</div>
+										</TableCell>
+
+										{/* Owner Column */}
+										<TableCell>
+											<div>
+												<div className="font-medium text-gray-900">
+													{business.ownerName}
+												</div>
+												<div className="text-sm text-muted-foreground">
+													{business.ownerEmail}
+												</div>
+											</div>
+										</TableCell>
+
+										{/* Plan Column */}
+										<TableCell>
+											<Badge>{business.plan}</Badge>
+										</TableCell>
+
+										{/* Status Column */}
+										<TableCell>
+											{/* <StatusBadge status={business.status} /> */}
+											<Badge variant="secondary">
+												{business.plan}
+											</Badge>
+										</TableCell>
+
+										{/* Member Column */}
+										<TableCell>
+											<div className="flex items-center gap-2">
+												<Users className="h-4 w-4 text-muted-foreground" />
+												<span className="text-sm font-medium">
+													{business.memberCount}
+												</span>
+											</div>
+										</TableCell>
+
+										{/* Conversation Column */}
+										<TableCell>
+											<div className="flex items-center gap-2">
+												<MessageCircle className="h-4 w-4 text-muted-foreground" />
+												<span className="text-sm font-medium">
+													{business.conversationCount}
+												</span>
+											</div>
+										</TableCell>
+
+										{/* Revenue Column */}
+										<TableCell>
+											<div className="flex items-center gap-1">
+												<DollarSign className="h-4 w-4 text-warning" />
+												<span className="text-sm font-medium text-warning">
+													{business.revenue}
+												</span>
+											</div>
+										</TableCell>
+
+										{/* Actions Column */}
+										<TableCell className="flex items-end justify-end">
+											<DropdownMenu>
+												<DropdownMenuTrigger asChild>
+													<Button
+														variant="ghost"
+														className="h-8 w-8 p-0"
+													>
+														<span className="sr-only">
+															Open menu
+														</span>
+														<MoreHorizontal className="h-4 w-4" />
+													</Button>
+												</DropdownMenuTrigger>
+												<DropdownMenuContent align="end">
+													<DropdownMenuItem
+														onClick={() =>
+															setOpenBusinessModalId(
+																business.id
+															)
+														}
+													>
+														View details
+													</DropdownMenuItem>
+													<DropdownMenuItem className="text-rose-500">
+														Suspend account
+													</DropdownMenuItem>
+												</DropdownMenuContent>
+											</DropdownMenu>
+										</TableCell>
+
+										<BusinessDetailsModal
+											isOpen={
+												openBusinessModalId ===
+												business.id
+											}
+											onClose={() =>
+												setOpenBusinessModalId(null)
+											}
+											business={business}
+										/>
+									</TableRow>
 								))}
 							</TableBody>
 						</Table>
@@ -333,20 +407,7 @@ export default function BusinessManagement() {
 interface BusinessDetailsModalProps {
 	isOpen: boolean;
 	onClose: () => void;
-	business: {
-		id: string;
-		name: string;
-		ownerName: string;
-		plan: string;
-		joinDate: string;
-		totalBookings: number;
-		monthlyRevenue: number;
-		customerRating: number;
-		botStatus: "Active" | "Inactive";
-		totalCustomers: number;
-		teamMembers: number;
-		integrations: string[];
-	};
+	business: Business;
 }
 
 function BusinessDetailsModal({
@@ -366,49 +427,49 @@ function BusinessDetailsModal({
 
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
-			<DialogContent className="max-w-4xl bg-gradient-to-br from-purple-400 to-purple-600 p-1 border-0">
-				<div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-6">
+			<DialogContent className="max-w-4xl p-1 bg-background">
+				<div className="rounded-lg p-6">
 					<DialogHeader className="mb-6">
-						<DialogTitle className="text-2xl font-bold text-gray-900">
+						<DialogTitle className="text-2xl font-bold text-foreground">
 							Bella's Hair Salon - Business Details
 						</DialogTitle>
 						<p className="text-gray-600 text-sm">
-							Complete business profil
+							Complete business profile
 						</p>
 					</DialogHeader>
 
 					{/* Metrics Cards */}
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-						<Card className="bg-white border border-gray-200">
+						<Card className="bg-secondary border border-primary/10">
 							<CardContent className="p-4">
-								<h3 className="text-sm font-medium text-gray-700 mb-2">
+								<h3 className="text-sm font-medium text-foreground mb-2">
 									Total Bookings
 								</h3>
-								<p className="text-2xl font-bold text-purple-600">
+								<p className="text-2xl font-bold text-theme">
 									{business.totalBookings}
 								</p>
 							</CardContent>
 						</Card>
 
-						<Card className="bg-white border border-gray-200">
+						<Card className="bg-secondary border border-primary/10">
 							<CardContent className="p-4">
-								<h3 className="text-sm font-medium text-gray-700 mb-2">
+								<h3 className="text-sm font-medium text-foreground mb-2">
 									Monthly Revenue
 								</h3>
-								<p className="text-2xl font-bold text-purple-600">
-									${business.monthlyRevenue}
+								<p className="text-2xl font-bold text-theme">
+									${business.revenue}
 								</p>
 							</CardContent>
 						</Card>
 
-						<Card className="bg-white border border-gray-200">
+						<Card className="bg-secondary border border-primary/10">
 							<CardContent className="p-4">
-								<h3 className="text-sm font-medium text-gray-700 mb-2">
+								<h3 className="text-sm font-medium text-foreground mb-2">
 									Customer Rating
 								</h3>
 								<div className="flex items-center gap-2">
-									<Star className="h-5 w-5 text-orange-500 fill-current" />
-									<p className="text-2xl font-bold text-orange-500">
+									<Star className="h-5 w-5 text-warning fill-current" />
+									<p className="text-2xl font-bold text-theme">
 										{business.customerRating}
 									</p>
 								</div>
@@ -419,45 +480,43 @@ function BusinessDetailsModal({
 					{/* Main Content */}
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						{/* Business Information */}
-						<Card className="bg-white border border-gray-200">
+						<Card className="bg-secondary border border-primary/10">
 							<CardContent className="p-6">
-								<h3 className="text-lg font-semibold text-gray-900 mb-4">
+								<h3 className="text-lg font-semibold text-foreground mb-4">
 									Business Information
 								</h3>
 
 								<div className="space-y-4">
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Owner:
 										</span>
-										<span className="font-medium text-purple-600">
+										<span className="font-medium text-theme">
 											{business.ownerName}
 										</span>
 									</div>
 
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Business name:
 										</span>
-										<span className="font-medium text-purple-600">
+										<span className="font-medium text-theme">
 											Hair Salon
 										</span>
 									</div>
 
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Plan:
 										</span>
-										<Badge className="bg-purple-100 text-purple-700 hover:bg-purple-100">
-											{business.plan}
-										</Badge>
+										<Badge>{business.plan}</Badge>
 									</div>
 
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Join Date:
 										</span>
-										<span className="font-medium text-purple-600">
+										<span className="font-medium text-theme">
 											{business.joinDate}
 										</span>
 									</div>
@@ -466,47 +525,66 @@ function BusinessDetailsModal({
 						</Card>
 
 						{/* Integrations & Status */}
-						<Card className="bg-white border border-gray-200">
+						<Card className="bg-secondary border border-primary/10">
 							<CardContent className="p-6">
-								<h3 className="text-lg font-semibold text-gray-900 mb-4">
+								<h3 className="text-lg font-semibold text-foreground mb-4">
 									Integrations & Status
 								</h3>
 
 								<div className="space-y-4">
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Bot Status:
 										</span>
-										<Badge className="bg-green-100 text-green-700 hover:bg-green-100">
+										<Badge variant="success">
 											{business.botStatus}
 										</Badge>
 									</div>
 
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Active Integrations:
 										</span>
-										<div className="flex gap-2">
-											{integrationIcons.facebook}
-											{integrationIcons.whatsapp}
-											{integrationIcons.instagram}
+										<div className="flex items-center justify-center gap-1">
+											<div className="w-6 h-6 flex items-center justify-center overflow-hidden">
+												<img
+													src={FacebookImg}
+													alt="Facebook"
+													className="max-w-full"
+												/>
+											</div>
+											<div className="w-6 h-6 flex items-center justify-center overflow-hidden">
+												<img
+													src={WhatsappImg}
+													alt="Whatsapp"
+													className="max-w-full"
+												/>
+											</div>
+
+											<div className="w-6 h-6 flex items-center justify-center overflow-hidden">
+												<img
+													src={InstagramImg}
+													alt="Instagram"
+													className="max-w-full"
+												/>
+											</div>
 										</div>
 									</div>
 
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Total Customers:
 										</span>
-										<span className="font-medium text-purple-600">
+										<span className="font-medium text-theme">
 											{business.totalCustomers}
 										</span>
 									</div>
 
 									<div className="flex justify-between items-center">
-										<span className="text-gray-600">
+										<span className="text-foreground">
 											Team member:
 										</span>
-										<span className="font-medium text-purple-600">
+										<span className="font-medium text-theme">
 											{business.teamMembers}
 										</span>
 									</div>

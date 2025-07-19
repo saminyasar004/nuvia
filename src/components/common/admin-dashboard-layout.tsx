@@ -43,6 +43,11 @@ export default function AdminDashboardLayout({ children }) {
 			href: "/admin/analytics",
 			icon: <ChartNoAxesCombined size={20} className="shrink-0" />,
 		},
+		{
+			label: "Settings",
+			href: "/admin/settings",
+			icon: <Settings size={20} className="shrink-0" />,
+		},
 	];
 	const [open, setOpen] = useState(false);
 

@@ -10,6 +10,7 @@ import {
 import { Bell } from "lucide-react";
 
 import Avatar from "@/assets/images/avatar.png";
+import { Link } from "react-router-dom";
 
 export default function DashboardHeader({
 	title,
@@ -26,7 +27,9 @@ export default function DashboardHeader({
 			</div>
 			<div className="flex items-center gap-4">
 				<span className="flex items-center cursor-pointer text-warning">
-					<Bell className="fill-theme text-theme" size={20} />
+					<Link to="/user/notifications">
+						<Bell className="fill-theme text-theme" size={20} />
+					</Link>
 				</span>
 
 				<DropdownMenu>

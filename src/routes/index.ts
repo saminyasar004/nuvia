@@ -11,13 +11,17 @@ import Customers from "@/pages/user/customers";
 import Signup from "@/pages/auth/signup";
 import ForgotPassword from "@/pages/auth/forgot-password";
 import VerifyOtp from "@/pages/auth/verify-otp";
-import Settings from "@/pages/user/settings";
+import UserSettings from "@/pages/user/settings";
 import BusinessProfile from "@/pages/user/business-profile";
 import Subscriptions from "@/pages/user/subscriptions";
 import Onboarding from "@/pages/on-boarding";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdminDashboardLayout from "@/components/common/admin-dashboard-layout";
 import BusinessManagement from "@/pages/admin/business-management";
+import AdminSubscriptions from "@/pages/admin/subscriptions";
+import Notifications from "@/components/common/notifications";
+import AdminSettings from "@/pages/admin/settings";
+import Analytics from "@/pages/admin/analytics";
 
 export interface Route {
 	path: string;
@@ -84,7 +88,7 @@ export const routes = [
 	},
 	{
 		path: "/user/settings",
-		element: Settings,
+		element: UserSettings,
 		layout: UserDashboardLayout,
 	},
 	{
@@ -98,6 +102,11 @@ export const routes = [
 		layout: UserDashboardLayout,
 	},
 	{
+		path: "/user/notifications",
+		element: Notifications,
+		layout: UserDashboardLayout,
+	},
+	{
 		path: "/admin/dashboard",
 		element: AdminDashboard,
 		layout: AdminDashboardLayout,
@@ -105,6 +114,26 @@ export const routes = [
 	{
 		path: "/admin/management",
 		element: BusinessManagement,
+		layout: AdminDashboardLayout,
+	},
+	{
+		path: "/admin/subscriptions",
+		element: AdminSubscriptions,
+		layout: AdminDashboardLayout,
+	},
+	{
+		path: "/admin/notifications",
+		element: Notifications,
+		layout: AdminDashboardLayout,
+	},
+	{
+		path: "/admin/settings",
+		element: AdminSettings,
+		layout: AdminDashboardLayout,
+	},
+	{
+		path: "/admin/analytics",
+		element: Analytics,
 		layout: AdminDashboardLayout,
 	},
 ];

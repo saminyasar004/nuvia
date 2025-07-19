@@ -1,17 +1,12 @@
+import HeadingUnderline from "@/assets/images/heading-underline.svg";
 import LeafLeftImg from "@/assets/images/leaf-left.svg";
 import LeafRightImg from "@/assets/images/leaf-right.svg";
 import SectionHeading from "@/components/common/section-heading";
 import { Button } from "@/components/ui/button";
-import HeadingUnderline from "@/assets/images/heading-underline.svg";
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-} from "@/components/ui/card";
-import { BadgeCheck, CheckCircle } from "lucide-react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { BadgeCheck } from "lucide-react";
 
-interface PricingPlan {
+export interface PricingPlan {
 	title: string;
 	description: string;
 	price: string;
@@ -19,50 +14,50 @@ interface PricingPlan {
 	buttonText: string;
 }
 
-export default function Pricing() {
-	const pricingPlans: PricingPlan[] = [
-		{
-			title: "Starter",
-			description:
-				"Perfect for small businesses just getting started with automation.",
-			price: "RM 0",
-			features: [
-				"Up to 50 AI replies/month",
-				"Appointment scheduling",
-				" WhatsApp Web only",
-				"Email support",
-			],
-			buttonText: "Start Free",
-		},
-		{
-			title: "Growth",
-			description:
-				"Ideal for growing businesses with multiple service offerings.",
-			price: "RM 99",
-			features: [
-				"Unlimited AI replies/month",
-				"Auto reminders",
-				"Client dashboard",
-				" Priority chat suppor",
-			],
-			buttonText: "Get Started",
-		},
-		{
-			title: "Pro",
-			description:
-				"For established businesses with high volume requirements.",
-			price: "RM 299",
-			features: [
-				"Cross-platform (WA/IG/Messenger",
-				"Voice note detection",
-				"Smart suggestion",
-				"Promo tools",
-				"Full analytics",
-			],
-			buttonText: "Get Started",
-		},
-	];
+export const pricingPlans: PricingPlan[] = [
+	{
+		title: "Starter",
+		description:
+			"Perfect for small businesses just getting started with automation.",
+		price: "RM 0",
+		features: [
+			"Up to 50 AI replies/month",
+			"Appointment scheduling",
+			" WhatsApp Web only",
+			"Email support",
+		],
+		buttonText: "Start Free",
+	},
+	{
+		title: "Growth",
+		description:
+			"Ideal for growing businesses with multiple service offerings.",
+		price: "RM 99",
+		features: [
+			"Unlimited AI replies/month",
+			"Auto reminders",
+			"Client dashboard",
+			" Priority chat suppor",
+		],
+		buttonText: "Get Started",
+	},
+	{
+		title: "Pro",
+		description:
+			"For established businesses with high volume requirements.",
+		price: "RM 299",
+		features: [
+			"Cross-platform (WA/IG/Messenger",
+			"Voice note detection",
+			"Smart suggestion",
+			"Promo tools",
+			"Full analytics",
+		],
+		buttonText: "Get Started",
+	},
+];
 
+export default function Pricing() {
 	return (
 		<section className="py-24 relative my-6" id="pricing">
 			<img

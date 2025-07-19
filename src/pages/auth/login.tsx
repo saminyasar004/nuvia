@@ -89,7 +89,7 @@ export default function Login() {
 						</div>
 
 						<div className="form-group">
-							<Link to={"/on-boarding"}>
+							<Link to={"/user/dashboard"}>
 								<Button className="w-full">Login</Button>
 							</Link>
 						</div>

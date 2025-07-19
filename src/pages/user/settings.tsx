@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-export default function Settings() {
+export default function UserSettings() {
 	const [isHideConfirmPassword, setIsHideConfirmPassword] = useState(false);
 	const [isHideNewPassword, setIsHideNewPassword] = useState(false);
 	const [isHideConfirmNewPassword, setIsHideConfirmNewPassword] =
