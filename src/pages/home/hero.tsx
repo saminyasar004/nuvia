@@ -1,3 +1,5 @@
+import VideoPlayer from "@/components/common/video-player";
+import VideoSrc from "@/assets/videos/promotional-video.mp4";
 import SparklesImg from "@/assets/images/sparkles.png";
 import LogoImg from "@/assets/images/logo.svg";
 import User1Img from "@/assets/images/user-1.jpg";
@@ -554,7 +556,7 @@ export default function Hero() {
 				className="absolute top-10 right-0 max-w-full"
 			/>
 
-			<div className="container h-[80vh] max-h-[700px] grid grid-cols-1 lg:grid-cols-2 py-12 lg:py-32">
+			<div className="container h-[70vh] max-h-[700px] grid grid-cols-1 lg:grid-cols-2 py-12 lg:py-32">
 				<div className="h-full flex flex-col gap-6 text-center lg:text-left">
 					<div className="w-full flex flex-col gap-2 lg:gap-3 items-center justify-center lg:items-start text-center lg:text-left">
 						<div
@@ -743,15 +745,19 @@ export default function Hero() {
 				</div>
 			</div>
 
-			<div className="container py-24 lg:pt-0 flex items-center justify-center mt-20 sm:mt-0">
-				<BlurFade delay={0.25 + 0.05} inView>
-					<img
+			<div className="container py-24 lg:pt-0 flex items-center justify-center mt-0 sm:mt-0">
+				<div className="w-full rounded-lg">
+					<VideoPlayer src={VideoSrc} />
+				</div>
+
+				{/* <BlurFade delay={0.25 + 0.05} inView> */}
+				{/* <img
 						src={HeroChatboxImg}
 						alt="hero-chatbox"
 						className="w-full h-full object-cover rounded-lg"
-					/>
+					/> */}
 
-					{/* <div className="w-full h-full bg-transparent rounded-lg group aspect-video relative before:contents-[''] before:absolute before:w-[6px] before:h-full before:bg-accent before:left-0 before:top-0 drop-shadow-lg">
+				{/* <div className="w-full h-full bg-transparent rounded-lg group aspect-video relative before:contents-[''] before:absolute before:w-[6px] before:h-full before:bg-accent before:left-0 before:top-0 drop-shadow-lg">
 					
 						<video
 							ref={videoRef}
@@ -765,7 +771,7 @@ export default function Hero() {
 
 						<div className="w-[102%] h-[102%] rounded-lg bg-primary/10 border border-primary/80 backdrop-blur-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 -z-[1]"></div>
 					</div> */}
-				</BlurFade>
+				{/* </BlurFade> */}
 			</div>
 		</section>
 	);

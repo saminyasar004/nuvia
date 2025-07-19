@@ -18,7 +18,7 @@ export default function Home() {
 			<Feature />
 			<Process />
 			<DataFlow />
-			<PromotionalVideo />
+			{/* <PromotionalVideo /> */}
 			<Pricing />
 			<FAQ />
 			<Testimonial />

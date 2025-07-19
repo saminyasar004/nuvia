@@ -1,53 +1,14 @@
 import FacebookImg from "@/assets/images/facebook.svg";
-import WhatsappImg from "@/assets/images/whatsapp.svg";
-import InstagramImg from "@/assets/images/instagram.svg";
 import LogoIcon from "@/assets/images/favicon.svg";
+import InstagramImg from "@/assets/images/instagram.svg";
 import QrImg from "@/assets/images/qr.png";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
-import {
-	Dialog,
-	DialogClose,
-	DialogContent,
-	DialogDescription,
-	DialogFooter,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-	Table,
-	TableBody,
-	TableCaption,
-	TableCell,
-	TableFooter,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "@/components/ui/table";
-import {
-	ArrowLeft,
-	ArrowRight,
-	BotMessageSquare,
-	BriefcaseBusiness,
-	Cable,
-	Check,
-	CheckCircle,
-	Eye,
-	EyeOff,
-	Menu,
-	MonitorCheck,
-	PlusIcon,
-	Settings,
-	Users,
-} from "lucide-react";
-import { serviceHoursDetails } from "../user/business-profile";
-import { Switch } from "@/components/ui/switch";
+import WhatsappImg from "@/assets/images/whatsapp.svg";
 import { DatePicker } from "@/components/common/date-picker";
 import { TimePicker } from "@/components/common/time-picker";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
 	Select,
 	SelectContent,
@@ -56,9 +17,36 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/components/ui/table";
+import { Textarea } from "@/components/ui/textarea";
 import { Stepper } from "@mantine/core";
+import {
+	ArrowLeft,
+	ArrowRight,
+	BotMessageSquare,
+	BriefcaseBusiness,
+	Cable,
+	Check,
+	Eye,
+	EyeOff,
+	Menu,
+	MonitorCheck,
+	PlusIcon,
+	Settings,
+	Upload,
+	Users,
+} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { serviceHoursDetails } from "../user/business-profile";
 
 interface TeamMemberProps {
 	member: string;
@@ -156,6 +144,25 @@ const BusinessInfo = ({
 	previousStep: () => void;
 	nextStep: () => void;
 }) => {
+	const [dragActive, setDragActive] = useState(false);
+
+	const handleDrag = (e: React.DragEvent) => {
+		e.preventDefault();
+		e.stopPropagation();
+		if (e.type === "dragenter" || e.type === "dragover") {
+			setDragActive(true);
+		} else if (e.type === "dragleave") {
+			setDragActive(false);
+		}
+	};
+
+	const handleDrop = (e: React.DragEvent) => {
+		e.preventDefault();
+		e.stopPropagation();
+		setDragActive(false);
+		// Handle file drop logic here
+	};
+
 	return (
 		<>
 			<div className="w-full py-5 flex items-center">
@@ -243,7 +250,35 @@ const BusinessInfo = ({
 								rows={5}
 							/>
 						</div>
+
+						<div className="w-full flex flex-col gap-4">
+							<Label className="text-sm font-medium text-gray-700">
+								Business logo/photo
+							</Label>
+							<div
+								className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+									dragActive
+										? "border-theme bg-background"
+										: "border-primary bg-secondary"
+								}`}
+								onDragEnter={handleDrag}
+								onDragLeave={handleDrag}
+								onDragOver={handleDrag}
+								onDrop={handleDrop}
+							>
+								<Upload className="mx-auto h-8 w-8 text-gray-400 mb-3" />
+								<p className="text-sm text-gray-500 mb-3">
+									drag and drop your logo here, or click to
+									browse
+								</p>
+								<Button variant="outline" size="sm">
+									Choose File
+								</Button>
+							</div>
+						</div>
 					</div>
+
+					{/* <div className="space-y-2 w-full form-group flex gap-4 items-start py-2"></div> */}
 
 					<div className="flex gap-4 items-center justify-between">
 						<h3 className="font-semibold text-2xl">

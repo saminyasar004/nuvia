@@ -12,13 +12,13 @@ export interface PricingPlan {
 	price: string;
 	features: string[];
 	buttonText: string;
+	isPopular: boolean;
 }
 
 export const pricingPlans: PricingPlan[] = [
 	{
 		title: "Starter",
-		description:
-			"Perfect for small businesses just getting started with automation.",
+		description: "Get started with AI automation, completely free.",
 		price: "RM 0",
 		features: [
 			"Up to 50 AI replies/month",
@@ -27,33 +27,35 @@ export const pricingPlans: PricingPlan[] = [
 			"Email support",
 		],
 		buttonText: "Start Free",
+		isPopular: false,
 	},
 	{
 		title: "Growth",
 		description:
-			"Ideal for growing businesses with multiple service offerings.",
+			"Save hours every week with smart reminders & client insights.",
 		price: "RM 99",
 		features: [
 			"Unlimited AI replies/month",
 			"Auto reminders",
 			"Client dashboard",
-			" Priority chat suppor",
+			" Priority chat support",
 		],
 		buttonText: "Get Started",
+		isPopular: true,
 	},
 	{
 		title: "Pro",
-		description:
-			"For established businesses with high volume requirements.",
+		description: "All-in-one AI receptionist for smart scalable brands.",
 		price: "RM 299",
 		features: [
-			"Cross-platform (WA/IG/Messenger",
+			"Cross-platform (WA/IG/Messenger)",
 			"Voice note detection",
 			"Smart suggestion",
 			"Promo tools",
 			"Full analytics",
 		],
 		buttonText: "Get Started",
+		isPopular: false,
 	},
 ];
 
@@ -95,8 +97,13 @@ export default function Pricing() {
 					{pricingPlans.map((plan, index) => (
 						<Card
 							key={index}
-							className="bg-accent border-primary rounded-3xl p-2 h-full"
+							className="bg-accent border-primary rounded-3xl p-2 h-full relative"
 						>
+							{plan.isPopular && (
+								<div className="absolute w-max h-6 text-xs px-6 bg-theme text-white rounded-xl left-1/2 -translate-x-1/2 -top-3 flex items-center justify-center">
+									Most Popular
+								</div>
+							)}
 							<CardHeader className="space-y-3">
 								<h3 className="font-bold text-3xl lg:text-4xl text-theme">
 									{plan.title}
