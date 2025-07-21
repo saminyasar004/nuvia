@@ -14,6 +14,7 @@ export default function Layout({ children }) {
 				element.scrollIntoView({ behavior: "smooth" });
 			}
 		}
+		window.scrollTo(0, 0);
 	}, [location]);
 
 	return (

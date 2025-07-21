@@ -2,6 +2,7 @@ import Favicon from "@/assets/images/favicon.svg";
 import { Confetti, type ConfettiRef } from "@/components/magicui/confetti";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function CTA() {
 	const confettiRef = useRef<ConfettiRef>(null);
@@ -30,9 +31,11 @@ export default function CTA() {
 					</p>
 
 					<div className="w-full py-8">
-						<InteractiveHoverButton>
-							Get Started
-						</InteractiveHoverButton>
+						<Link to={"/signup"}>
+							<InteractiveHoverButton>
+								Get Started
+							</InteractiveHoverButton>
+						</Link>
 					</div>
 				</div>
 				<div className="w-full flex items-center justify-center lg:justify-end">
