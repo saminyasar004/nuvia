@@ -22,7 +22,7 @@ export default function Signup() {
 							<Link to={"/"}>
 								<img
 									src={Logo}
-									alt="nuvía"
+									alt="Newvía"
 									className="max-w-full"
 								/>
 							</Link>
@@ -32,7 +32,7 @@ export default function Signup() {
 							Create Account
 						</h2>
 						<p className="text-gray-500 text-sm">
-							Enter your information to get started with Nuvía
+							Enter your information to get started with Newvía
 						</p>
 					</div>
 				</CardHeader>

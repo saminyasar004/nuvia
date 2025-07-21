@@ -1,4 +1,4 @@
-import Logo from "@/assets/images/logo.svg";
+import LogoImg from "@/assets/images/logo.svg";
 import { Sheet, SheetContent, SheetFooter } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { AlignRight } from "lucide-react";
@@ -32,8 +32,8 @@ export default function Header() {
 				<div className="flex items-center justify-start">
 					<Link to={"/"}>
 						<img
-							src={Logo}
-							alt="nuvía"
+							src={LogoImg}
+							alt="Newvía"
 							className="max-w-[50%] lg:max-w-[70%]"
 						/>
 					</Link>

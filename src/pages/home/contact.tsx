@@ -1,5 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@radix-ui/react-label";
 import { Mail, MapPin, Phone } from "lucide-react";
@@ -101,18 +109,128 @@ export default function Contact() {
 						</div>
 					</div>
 
+					<div className="form-group flex items-center gap-5">
+						<div className="w-full">
+							<Label className="text-primary font-medium cursor-pointer">
+								Company Name
+							</Label>
+							<Input type="text" placeholder="Acme" />
+						</div>
+						<div className="w-full">
+							<Label className="text-primary font-medium cursor-pointer">
+								Job Title
+							</Label>
+
+							<Input type="text" placeholder="Job Title" />
+						</div>
+					</div>
+
 					<div className="form-group flex flex-col gap-2">
 						<Label
 							htmlFor="email"
 							className="text-primary font-medium cursor-pointer"
 						>
-							Email
+							Work Email
 						</Label>
 						<Input
 							id="email"
 							type="email"
 							placeholder="info@aiprojectmanager.com"
 						/>
+					</div>
+
+					<div className="form-group flex items-center gap-5">
+						<div className="w-full">
+							<Label className="text-primary font-medium cursor-pointer">
+								Company Size
+							</Label>
+							<Select>
+								<SelectTrigger className="w-full">
+									<SelectValue placeholder="Please select" />
+								</SelectTrigger>
+								<SelectContent>
+									<SelectGroup>
+										<SelectItem value="5-10">
+											5-10 Employees
+										</SelectItem>
+										<SelectItem value="10-20">
+											10-20 Employees
+										</SelectItem>
+										<SelectItem value="20-50">
+											20-50 Employees
+										</SelectItem>
+										<SelectItem value="50-100">
+											50-100 Employees
+										</SelectItem>
+										<SelectItem value="100+">
+											100+ Employees
+										</SelectItem>
+									</SelectGroup>
+								</SelectContent>
+							</Select>
+						</div>
+						<div className="w-full">
+							<Label className="text-primary font-medium cursor-pointer">
+								Company Type
+							</Label>
+							<Select>
+								<SelectTrigger className="w-full">
+									<SelectValue placeholder="Please select" />
+								</SelectTrigger>
+								<SelectContent>
+									<SelectGroup>
+										<SelectItem value="5-10">
+											Enterprise
+										</SelectItem>
+										<SelectItem value="10-20">
+											Agency
+										</SelectItem>
+										<SelectItem value="20-50">
+											Small Business
+										</SelectItem>
+										<SelectItem value="50-100">
+											Startup
+										</SelectItem>
+										<SelectItem value="100+">
+											Other
+										</SelectItem>
+									</SelectGroup>
+								</SelectContent>
+							</Select>
+						</div>
+					</div>
+
+					<div className="form-group flex flex-col gap-2">
+						<Label
+							htmlFor="number"
+							className="text-primary font-medium cursor-pointer"
+						>
+							How did you hear about us?
+						</Label>
+						<Select>
+							<SelectTrigger className="w-full">
+								<SelectValue placeholder="Please select" />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectGroup>
+									<SelectItem value="5-10">
+										Facebook
+									</SelectItem>
+									<SelectItem value="10-20">
+										Instagram
+									</SelectItem>
+									<SelectItem value="20-50">
+										Linkedin
+									</SelectItem>
+									<SelectItem value="50-100">
+										Friends & Family
+									</SelectItem>
+									<SelectItem value="100+">
+										Colleague
+									</SelectItem>
+								</SelectGroup>
+							</SelectContent>
+						</Select>
 					</div>
 
 					<div className="form-group flex flex-col gap-2">

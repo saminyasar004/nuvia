@@ -22,7 +22,7 @@ export default function Footer() {
 				<div className="lg:col-span-2 flex flex-col gap-4">
 					<img
 						src={Logo}
-						alt="nuvía"
+						alt="Newvía"
 						className="max-w-[40%] lg:max-w-[20%]"
 					/>
 

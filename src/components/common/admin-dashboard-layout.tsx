@@ -98,7 +98,7 @@ export const Logo = () => {
 		>
 			<img
 				src={LogoBlack}
-				alt="nuvía"
+				alt="Newvía"
 				className="max-w-full h-16 transition-all duration-300"
 			/>
 		</Link>
@@ -112,7 +112,7 @@ export const LogoIcon = () => {
 		>
 			<img
 				src={LogoIconImg}
-				alt="nuvía"
+				alt="Newvía"
 				className="max-w-full h-16 transition-all duration-300"
 			/>
 		</Link>

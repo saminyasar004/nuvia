@@ -121,7 +121,7 @@ export default function PrivacyPolicy() {
 
 					<div className="bg-accent rounded-lg shadow-sm py-4 px-2 text-left">
 						<p className="text-sm">
-							At ChatFlow (Ease Chat Global), we are committed to
+							At ChatFlow (Newvía Global), we are committed to
 							protecting your privacy and ensuring transparency in
 							how we collect, use, and store your information.
 							This Privacy Policy outlines the types of data we

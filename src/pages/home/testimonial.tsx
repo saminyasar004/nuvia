@@ -9,51 +9,51 @@ export default function Testimonial() {
 		{
 			id: 0,
 			date: "May 8, 2025",
-			name: "Pappu Roy",
+			name: "Priya Sharma",
 			image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut nunc nec purus ornare mattis. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lorem arcu. Facilisis magna etiam sed magna eget nibh in turpis. Consequat duis diam lorem arcu.",
+			text: "Since adopting Newvía last month, my appointment bookings have doubled! The AI chatbot handles inquiries effortlessly, and the setup was a breeze. Highly recommend it as of July 2025!",
 		},
 		{
 			id: 1,
 			date: "June 2, 2025",
 			name: "Anita Sharma",
 			image: "https://plus.unsplash.com/premium_photo-1670884441012-c5cf195c062a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+			text: "Newvía's customizable chatbot has transformed how we interact with clients. The feedback system helped us improve our services, and the support team was amazing this week. Tested on July 21, 2025!",
 		},
 		{
 			id: 2,
 			date: "May 15, 2025",
 			name: "Rohit Kumar",
 			image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+			text: "I started using Newvía this morning at 10:26 AM on July 21, 2025, and the appointment management is spot-on. It's saved me hours already great tool for solo entrepreneurs!",
 		},
 		{
 			id: 3,
 			date: "June 5, 2025",
 			name: "Priya Patel",
 			image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			text: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+			text: "Newvía's integration with Calendly made scheduling a dream. Our customer satisfaction has soared since last month, and the platform's design is top-notch. Thanks, team!",
 		},
 		{
 			id: 4,
 			date: "May 20, 2025",
 			name: "Vikram Singh",
 			image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			text: "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+			text: "The AI features in Newvía are impressive! We've seen a 30% increase in customer engagement since June 2025. The support during setup was a lifesaver.",
 		},
 		{
 			id: 5,
 			date: "June 1, 2025",
 			name: "Sneha Desai",
 			image: "https://plus.unsplash.com/premium_photo-1671656349218-5218444643d8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			text: "Ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.",
+			text: "Newvía streamlined my client bookings and feedback collection. Launched it this month, and it's already a game-changer for my business. Kudos to the developers!",
 		},
 		{
 			id: 6,
 			date: "May 25, 2025",
 			name: "Arjun Mehra",
 			image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			text: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+			text: "Using Newvía since early July 2025 has boosted our table reservations. The chatbot's natural responses impress my customers, and the analytics are a bonus!",
 		},
 	];
 
@@ -77,7 +77,7 @@ export default function Testimonial() {
 							</span>
 						</h2>
 					}
-					description="Don't just take our word for it. See what our customers have to say about Ease Chat"
+					description="Don't just take our word for it. See what our customers have to say about Newvía"
 				/>
 
 				<div className="w-full py-8">

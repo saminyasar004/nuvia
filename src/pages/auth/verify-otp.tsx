@@ -102,7 +102,7 @@ export default function VerifyOtp() {
 							<Link to={"/"}>
 								<img
 									src={Logo}
-									alt="nuvía"
+									alt="Newvía"
 									className="max-w-full"
 								/>
 							</Link>

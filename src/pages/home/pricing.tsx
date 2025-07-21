@@ -4,7 +4,9 @@ import LeafRightImg from "@/assets/images/leaf-right.svg";
 import SectionHeading from "@/components/common/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { BadgeCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export interface PricingPlan {
 	title: string;
@@ -93,11 +95,14 @@ export default function Pricing() {
 					description="Choose the plan that's right for your business"
 				/>
 
-				<div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-20 items-start pt-12">
+				<div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-28 items-start pt-16">
 					{pricingPlans.map((plan, index) => (
 						<Card
 							key={index}
-							className="bg-accent border-primary rounded-3xl p-2 h-full relative"
+							className={cn(
+								"bg-accent border-primary rounded-3xl p-2 h-full relative",
+								plan.isPopular && "scale-110"
+							)}
 						>
 							{plan.isPopular && (
 								<div className="absolute w-max h-6 text-xs px-6 bg-theme text-white rounded-xl left-1/2 -translate-x-1/2 -top-3 flex items-center justify-center">
@@ -144,12 +149,14 @@ export default function Pricing() {
 									))}
 								</ul>
 
-								<Button
-									size="lg"
-									className="w-full rounded-full"
-								>
-									{plan.buttonText}
-								</Button>
+								<Link to={"/user/subscriptions"}>
+									<Button
+										size="lg"
+										className="w-full rounded-full"
+									>
+										{plan.buttonText}
+									</Button>
+								</Link>
 							</CardContent>
 						</Card>
 					))}

@@ -90,7 +90,7 @@ export const ConversationList: React.FC<ConversationListProps> = ({
 					<div className="w-full flex items-center justify-center">
 						<img
 							src={LogoWhite}
-							alt="nuvía"
+							alt="Newvía"
 							className="max-w-[70%]"
 						/>
 					</div>

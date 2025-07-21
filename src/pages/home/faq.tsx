@@ -9,23 +9,29 @@ export default function FAQ() {
 	const faqs = [
 		{
 			id: 0,
-			question: "How Accurate Are The Product Recommendations?",
-			answer: "Yes, we take data security seriously. All conversations are encrypted and we never share your personal data with third parties without your consent.",
+			question: "What is Newvía, and how can it benefit my business?",
+			answer: "Newvía is an AI-powered SaaS platform that enhances customer engagement with a customizable chatbot, simplifies appointment booking, and provides feedback management. It benefits your business by automating interactions, improving customer satisfaction, and streamlining operations.",
 		},
 		{
 			id: 1,
-			question: "How Do I Cancel My Subscription?",
-			answer: "To cancel your subscription, please visit the account settings on the platform where you subscribed (e.g., grok.com or x.com) and follow the cancellation instructions provided.",
+			question: "Do I need technical skills to use Newvía?",
+			answer: "No technical skills are required! Newvía offers an intuitive interface for business owners to customize the chatbot and manage appointments, with full support from our team to get you started.",
 		},
 		{
 			id: 2,
-			question: "How Do Affiliate Links Work?",
-			answer: "Affiliate links are used to track referrals. When you click an affiliate link and make a purchase, the merchant may share a small commission with us, at no extra cost to you.",
+			question: "Can I integrate Newvía with my existing tools?",
+			answer: "Yes, Newvía supports integration with popular APIs like Open AI, Twilio, and Calendly, allowing you to connect with your existing business tools for a seamless experience.",
 		},
 		{
 			id: 3,
-			question: "What Happens If A Recommended Product Is Unavailable?",
-			answer: "If a recommended product is unavailable, we will suggest alternative products that match your preferences or notify you when the product becomes available again.",
+			question: "Is my data secure on the Newvía platform?",
+			answer: "Absolutely. Newvía prioritizes data security with robust encryption and compliance standards, ensuring your customer interactions and business data remain safe and private.",
+		},
+		{
+			id: 4,
+			question:
+				"What kind of support can I expect after subscribing to Newvía?",
+			answer: "We provide 90 days of free ongoing support post-subscription to assist with setup and initial issues, followed by continuous customer service to ensure your success with Newvía.",
 		},
 	];
 

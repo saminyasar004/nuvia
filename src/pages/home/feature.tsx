@@ -23,13 +23,13 @@ export default function Feature() {
 			img: CalendarImg,
 			title: "Smart Booking with Auto-Fill & Reschedulin",
 			description:
-				"Never leave time slots empty again. NuVía automates scheduling, reminders, cancellations — and fills in your calendar gaps with intelligent suggestions",
+				"Never leave time slots empty again. Newvía automates scheduling, reminders, cancellations — and fills in your calendar gaps with intelligent suggestions",
 		},
 		{
 			img: AIResponseImg,
 			title: "AI That Speaks Your Language",
 			description:
-				"Your assistant mirrors your tone and services. Every client message sounds like you — not a bot. NuVía learns your offerings and adapts naturally.",
+				"Your assistant mirrors your tone and services. Every client message sounds like you — not a bot. Newvía learns your offerings and adapts naturally.",
 		},
 		{
 			img: LoyalCustomersImg,
@@ -47,7 +47,7 @@ export default function Feature() {
 			img: R247Img,
 			title: "24/7 Smart Assistant On-Duty",
 			description:
-				"Let it work — even when you're offline. NuVía handles chats and bookings while you rest, teach, or take time off",
+				"Let it work — even when you're offline. Newvía handles chats and bookings while you rest, teach, or take time off",
 		},
 	];
 

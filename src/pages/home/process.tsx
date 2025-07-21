@@ -14,13 +14,13 @@ export default function Process() {
 		{
 			title: "Sign Up & Connect Your Channels",
 			description:
-				"Create your NuVía account and securely connect your WhatsApp Business, Instagram, or Messenger.",
+				"Create your Newvía account and securely connect your WhatsApp Business, Instagram, or Messenger.",
 			position: "left",
 		},
 		{
 			title: "Choose a Plan That Fits",
 			description:
-				"Select your ideal subscription. Whether you're solo or scaling, NuVía grows with your needs.",
+				"Select your ideal subscription. Whether you're solo or scaling, Newvía grows with your needs.",
 			position: "right",
 		},
 		{
@@ -38,7 +38,7 @@ export default function Process() {
 		{
 			title: "Launch and Start Helping Clients Instantly",
 			description:
-				"Go live and watch NuVía manage inquiries, fill slots, and respond around the clock — all from one dashboard.",
+				"Go live and watch Newvía manage inquiries, fill slots, and respond around the clock — all from one dashboard.",
 			position: "left",
 		},
 	];
@@ -105,7 +105,7 @@ export default function Process() {
 						<h2 className="mb-4">
 							Set Up Your{" "}
 							<span className="text-theme relative">
-								NuVía{" "}
+								Newvía{" "}
 								<img
 									className="max-w-[150px] lg:max-w-[200px] absolute -bottom-4 left-1/2 -translate-x-1/2"
 									src={HeadingUnderline}

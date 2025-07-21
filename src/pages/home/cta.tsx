@@ -38,7 +38,7 @@ export default function CTA() {
 				<div className="w-full flex items-center justify-center lg:justify-end">
 					<img
 						src={Favicon}
-						alt="nuvía"
+						alt="Newvía"
 						className="max-w-[70%] lg:max-w-full"
 					/>
 				</div>

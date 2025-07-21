@@ -756,7 +756,7 @@ const WhatsAppConnect = () => {
 							<div className="w-8 h-8 flex items-center justify-center">
 								<img
 									src={LogoIcon}
-									alt="Nuvía"
+									alt="Newvía"
 									className="max-w-full"
 								/>
 							</div>
@@ -767,7 +767,7 @@ const WhatsAppConnect = () => {
 						<div className="space-y-4">
 							<div className="flex flex-col gap-4">
 								<h1 className="text-3xl md:text-4xl font-bold text-foreground">
-									Connect WhatsApp to Nuvía
+									Connect WhatsApp to Newvía
 								</h1>
 
 								<p className="text-xl md:text-2xl text-foreground mb-8">
@@ -842,7 +842,7 @@ const WhatsAppConnect = () => {
 							<div className="w-8 h-8 flex items-center justify-center">
 								<img
 									src={LogoIcon}
-									alt="Nuvía"
+									alt="Newvía"
 									className="max-w-full"
 								/>
 							</div>
@@ -850,7 +850,7 @@ const WhatsAppConnect = () => {
 					</div>
 
 					<h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
-						Connect WhatsApp to Nuvía
+						Connect WhatsApp to Newvía
 					</h1>
 
 					<p className="text-lg text-foreground mb-8 text-center">
@@ -1267,7 +1267,7 @@ const AllSet = ({ previousStep }: { previousStep: () => void }) => {
 							<div className="flex items-center justify-center w-20 h-20">
 								<img
 									src={LogoIcon}
-									alt="nuvía"
+									alt="Newvía"
 									className="max-w-full"
 								/>
 							</div>
