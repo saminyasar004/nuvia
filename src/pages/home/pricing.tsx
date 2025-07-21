@@ -101,7 +101,7 @@ export default function Pricing() {
 							key={index}
 							className={cn(
 								"bg-accent border-primary rounded-3xl p-2 h-full relative",
-								plan.isPopular && "scale-110"
+								plan.isPopular && "lg:scale-110"
 							)}
 						>
 							{plan.isPopular && (

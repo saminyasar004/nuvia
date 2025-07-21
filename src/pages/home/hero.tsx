@@ -71,7 +71,7 @@ export default function Hero() {
 				className="absolute top-10 right-0 max-w-full"
 			/>
 
-			<div className="container h-[70vh] max-h-[700px] grid grid-cols-1 lg:grid-cols-2 py-12 lg:py-32">
+			<div className="container h-[70vh] max-h-[700px] grid grid-cols-1 lg:grid-cols-2 py-12 lg:py-32 gap-20">
 				<div className="h-full flex flex-col gap-6 text-center lg:text-left">
 					<div className="w-full flex flex-col gap-2 lg:gap-3 items-center justify-center lg:items-start text-center lg:text-left">
 						<div
@@ -195,7 +195,7 @@ export default function Hero() {
 				</div>
 			</div>
 
-			<div className="container py-24 lg:pt-0 flex items-center justify-center mt-0 sm:mt-0">
+			<div className="container py-24 lg:pt-0 flex items-center justify-center mt-36 lg:mt-0">
 				<div className="w-full rounded-lg">
 					<VideoPlayer src={VideoSrc} />
 				</div>

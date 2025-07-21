@@ -531,7 +531,7 @@ export default function DataFlow() {
 
 	return (
 		<section className="py-16 border border-dashed border-theme mb-32">
-			<div className="container flex gap-8 items-center justify-center">
+			<div className="container flex flex-col lg:flex-col gap-8 items-center justify-center">
 				<div className="flex flex-col gap-3">
 					<div className="flex flex-col gap-2">
 						<h3 className="font-semibold text-3xl text-theme">

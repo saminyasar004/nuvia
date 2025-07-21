@@ -26,7 +26,7 @@ export default function CTA() {
 					</div>
 
 					<p className="lg:w-[80%] text-sm leading-normal">
-						Join hundreds of businesses already using ChatFlow to
+						Join hundreds of businesses already using Newvía to
 						automate customer interactions and grow their revenue.
 					</p>
 

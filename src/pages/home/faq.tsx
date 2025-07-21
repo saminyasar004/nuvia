@@ -54,7 +54,7 @@ export default function FAQ() {
 							</span>
 						</h2>
 					}
-					description="Find answers to common questions about ChatFlow and our services"
+					description="Find answers to common questions about Newvía and our services"
 				/>
 
 				<div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-3 py-8">
